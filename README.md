@@ -13,6 +13,15 @@ This is part of test automation challenge posted by Setel. I am using pytest fra
 # Overview of the test structure or framework
 Overall test framework is based on pytest and following page object model concept to improve on maintanebility of the UI or codes. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line exection). 
 
+#Cloning the project and install required dependencies
+Please execute the following command to clone the project in your working directory
+```buildoutcfg
+    git clone https://github.com/munfeiwoo/setel.git
+```
+Execute the following command to install all dependencies
+```buildoutcfg
+    pipenv install
+```
 
 # Config file
 
@@ -50,7 +59,7 @@ Available configuration for modile test in command prompt
   --password
 ```
 
-# Example command line execution
+# Example command line text execution
 
 API test
 
