@@ -2,7 +2,7 @@ import pytest
 import os
 import json
 
-CONFIG_PATH = 'C:\\Users\\MunFei_Woo\\python-webui-testing\\config\\config.json'
+CONFIG_PATH = 'config\\config.json'
 
 
 def pytest_addoption(parser):
