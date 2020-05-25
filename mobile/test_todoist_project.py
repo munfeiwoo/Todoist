@@ -16,9 +16,9 @@ def test_create_project(app, api, user):
     project_name = 'Setel Project1'
     token = api['token']
     project_url = api['project_url']
-    project_id = api_create_new_project(token, project_url, project_name)
     email = user['email']
     password = user['password']
+    project_id = api_create_new_project(token, project_url, project_name)
     assert (project_id > 0)
 
     # Body
