@@ -3,7 +3,7 @@
 This is part of test automation challenge posted by Setel. I am using pytest framework and Appium to cover the API and mobile application testing based on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and python 3.8.
 
 # Machine setup
-1. python 3.8
+1. Python 3.8
 2. pip
 3. pipenv
 4. Appium 1.17.1
@@ -15,7 +15,7 @@ Overall test framework is based on pytest and following page object model concep
 
 Please be noted of the assertions made in the API call to ensure any error being captured or prompted
 
-Each test was scripted as an independent test to ensure the test could be executed as a standalone.
+Each test was scripted as an independent test to ensure the test could be executed as a standalone and representing a user story or feature
    
 
 # Cloning the project and install required dependencies
