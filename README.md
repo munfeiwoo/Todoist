@@ -18,7 +18,8 @@ Please be noted of the assertions made in the API call to ensure any error being
 Each test was scripted as an independent test to ensure the test could be executed as a standalone and representing a user story or feature
 
 There are markers for each test to add flexibility to execute certain test cases
-   
+
+Please be noted that "setel>pages>web" and "setel>web" folder are just to demonstrate potential structure for adding page objects and test automation for web in the future     
 
 # Cloning the project and install required dependencies
 Please execute the following command to clone the project in your working directory
