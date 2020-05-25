@@ -6,15 +6,15 @@ CONFIG_PATH = 'config\\config.json'
 
 
 def pytest_addoption(parser):
-    parser.addoption("--token", action="store", default="None")
-    parser.addoption("--projecturl", action="store", default="None")
-    parser.addoption("--projecttaskurl", action="store", default="None")
+    parser.addoption("--apitoken", action="store", default="None")
+    parser.addoption("--apiprojecturl", action="store", default="None")
+    parser.addoption("--apiprojecttaskurl", action="store", default="None")
 
 
 def pytest_configure(config):
-    os.environ['token'] = config.getoption('token')
-    os.environ['projecturl'] = config.getoption('projecturl')
-    os.environ['projecttaskurl'] = config.getoption('projecttaskurl')
+    os.environ['apitoken'] = config.getoption('apitoken')
+    os.environ['apiprojecturl'] = config.getoption('apiprojecturl')
+    os.environ['apiprojecttaskurl'] = config.getoption('apiprojecttaskurl')
 
 
 @pytest.fixture(scope='session')
@@ -29,7 +29,7 @@ def configure():
 def config_token(configure):
     # Validate and return the browser choice from the config data
 
-    token = os.getenv('token')
+    token = os.getenv('apitoken')
 
     if token != 'None':
         return token
@@ -41,7 +41,7 @@ def config_token(configure):
 
 @pytest.fixture(scope='session')
 def config_project_url(configure):
-    project_url = os.getenv('projecturl')
+    project_url = os.getenv('apiprojecturl')
 
     if project_url != 'None':
         return project_url
@@ -53,7 +53,7 @@ def config_project_url(configure):
 
 @pytest.fixture(scope='session')
 def config_project_task_url(configure):
-    project_task_url = os.getenv('projecttaskurl')
+    project_task_url = os.getenv('apiprojecttaskurl')
 
     if project_task_url != 'None':
         return project_task_url
