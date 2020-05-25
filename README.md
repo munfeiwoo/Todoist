@@ -13,6 +13,7 @@ This is part of test automation challenge posted by Setel to perform test automa
 
 Please be noted I have setup my Todoist account manually
 
+
 # Overview of the test structure or framework
 Overall test framework is based on pytest and following page object model concept to improve on maintainability of the UI or codes. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line execution).
 
