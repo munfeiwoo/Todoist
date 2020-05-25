@@ -8,9 +8,9 @@ CONFIG_PATH = 'config\\config.json'
 
 
 def pytest_addoption(parser):
-    parser.addoption("--appiumserver", action="store", default="http://localhost:4723/wd/hub")
-    parser.addoption("--platformname", action="store", default="Android")
-    parser.addoption("--platformversion", action="store", default="7.1.1")
+    parser.addoption("--appiumserver", action="store", default="None")
+    parser.addoption("--platformname", action="store", default="None")
+    parser.addoption("--platformversion", action="store", default="None")
     parser.addoption("--token", action="store", default="None")
     parser.addoption("--projecturl", action="store", default="None")
     parser.addoption("--projecttaskurl", action="store", default="None")
