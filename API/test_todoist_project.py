@@ -47,4 +47,4 @@ def test_create_and_delete_project(api_test_config):
 
     api_delete_project(token, project_url, project_id)
     response = api_get_project_details(token, project_url, project_id)
-    assert (response.status_code == 404, "Should not return project details after deleted")
+    assert (response.status_code == 404)
