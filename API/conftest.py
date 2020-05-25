@@ -67,8 +67,8 @@ def config_project_task_url(configure):
 def api_test_config(config_token, config_project_url, config_project_task_url, request):
     # Initialize WebDriver
 
-    test_config = dict()
-    test_config['token'] = config_token
-    test_config['project_url'] = config_project_url
-    test_config['project_task_url'] = config_project_task_url
-    return test_config
+    config = dict()
+    config['token'] = config_token
+    config['project_url'] = config_project_url
+    config['project_task_url'] = config_project_task_url
+    return config
