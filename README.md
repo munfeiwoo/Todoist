@@ -79,7 +79,7 @@ Available configuration for modile test in command prompt
 
 # Example of command line text execution
 
-**API test**
+#### **API test**
 
 To execute test on API
 ```
@@ -101,7 +101,7 @@ To test all API passing token value in command prompt
 pipenv run python -m pytest c:\setel\API --apitoken="XXXXXXXX"
 ```
 
-**Mobile APP**
+##### **Mobile APP**
 
 To execute all mobile app test
 ```
