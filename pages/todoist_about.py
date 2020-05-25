@@ -1,7 +1,7 @@
 class TodoistAbout:
 
-    LAST_SYNC_OPTION = "//android.widget.TextView[@text='Last synced']"
-    NAVIGATE_UP = "//android.widget.ImageButton[@content-desc='Navigate up']"
+    LAST_SYNC_OPTION = '//android.widget.TextView[@text="Last synced"]'
+    NAVIGATE_UP = '//android.widget.ImageButton[@content-desc="Navigate up"]'
 
     def __init__(self,app):
         self.app = app
