@@ -1,8 +1,8 @@
+import time
+
 from pages.todoist_leftNav import TodoistLeftNav
 from pages.todoist_settings import TodoistSettings
 from pages.todoist_about import TodoistAbout
-
-import time
 
 
 class TodoistGeneric:
