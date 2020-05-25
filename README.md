@@ -77,7 +77,7 @@ Available configuration for modile test in command prompt
   --password
 ```
 
-# Example command line text execution
+# Example of command line text execution
 
 API test
 
