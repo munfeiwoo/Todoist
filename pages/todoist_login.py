@@ -11,11 +11,11 @@ class TodoistLogin:
     def __init__(self, app):
         self.app = app
 
-    def email_login(self):
+    def email_login(self, email, password):
         self.app.find_element_by_id(self.EMAIL_LOGIN_BTN).click()
         self.app.find_element_by_id(self.ANDROID_CANCEL_BTN).click()
-        self.app.find_element_by_id(self.EMAIL_INPUT).send_keys('munfei.woo@gmail.com')
+        self.app.find_element_by_id(self.EMAIL_INPUT).send_keys(email)
         self.app.find_element_by_id(self.EMAIL_CONTINUE_BTN).click()
-        self.app.find_element_by_id(self.PASSWORD_INPUT).send_keys("mel98223")
+        self.app.find_element_by_id(self.PASSWORD_INPUT).send_keys(password)
         self.app.find_element_by_id(self.LOGIN_BTN).click()
         self.app.find_element_by_id(self.TIMEZONE_NO_SETUP_OPTION).click()
