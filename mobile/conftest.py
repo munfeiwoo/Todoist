@@ -65,14 +65,14 @@ def config_appium_server(configure):
 
 @pytest.fixture(scope='session')
 def config_platform_version(configure):
-    platform_version = os.getenv('platformversion')
+    platform_version = os.getenv('platform_version')
 
     if platform_version != 'None':
         return platform_version
     else:
-        if 'platformversion' not in configure:
-            raise Exception('The config file does not contain "platformversion"')
-        return configure['platformversion']
+        if 'platform_version' not in configure:
+            raise Exception('The config file does not contain "platform_version"')
+        return configure['platform_version']
 
 
 @pytest.fixture(scope='session')
