@@ -16,6 +16,8 @@ Overall test framework is based on pytest and following page object model concep
 Please be noted of the assertions made in the API call to ensure any error being captured or prompted
 
 Each test was scripted as an independent test to ensure the test could be executed as a standalone and representing a user story or feature
+
+There are markers for each test to add flexibility to execute certain test cases
    
 
 # Cloning the project and install required dependencies
