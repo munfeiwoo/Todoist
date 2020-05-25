@@ -18,7 +18,7 @@ Please be noted of assertions made in the API call to ensure any error being cap
 Each test was scripted as independent test to ensure the test could be executed as a standalone.
    
 
-#Cloning the project and install required dependencies
+# Cloning the project and install required dependencies
 Please execute the following command to clone the project in your working directory
 ```buildoutcfg
     git clone https://github.com/munfeiwoo/setel.git
