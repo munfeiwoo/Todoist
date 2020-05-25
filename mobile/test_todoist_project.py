@@ -3,9 +3,9 @@ import time
 import logging
 
 from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details
-from pages.todoist_leftNav import TodoistLeftNav
-from pages.todoist_login import TodoistLogin
-from pages.todoist_manage_project import TodoistManageProject
+from pages.mobile.todoist_leftNav import TodoistLeftNav
+from pages.mobile.todoist_login import TodoistLogin
+from pages.mobile.todoist_manage_project import TodoistManageProject
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger()

@@ -5,9 +5,9 @@ import logging
 
 from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details
 from API.test_todoist_task import api_get_project_task_by_name, api_get_project_task_id_by_name, api_reopen_task
-from pages.todoist_login import TodoistLogin
-from pages.todoist_leftNav import TodoistLeftNav
-from pages.todoist_project import TodoistProject
+from pages.mobile.todoist_login import TodoistLogin
+from pages.mobile.todoist_leftNav import TodoistLeftNav
+from pages.mobile.todoist_project import TodoistProject
 from mobile.generic import TodoistGeneric
 
 logging.basicConfig(level=logging.DEBUG)
