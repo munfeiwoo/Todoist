@@ -3,7 +3,7 @@
 This is part of test automation challenge posted by Setel. I am using pytest framework and Appium to cover the API and mobile application testing based on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and python 3.8.
 
 # Machine setup
-1. python 3.8
+1. Python 3.8
 2. pip
 3. pipenv
 4. Appium 1.17.1
