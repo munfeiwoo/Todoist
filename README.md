@@ -5,11 +5,11 @@ This is part of test automation challenge posted by Setel to perform test automa
 
 # Machine setup
 1. Python 3.8
-2. pip
-3. pipenv
+2. pip 20.1
+3. pipenv 2018.11.26
 4. Appium 1.17.1
-5. Andriod studio to configure your emulator
-6. Preinstall Todoist application in your emulator
+5. Andriod studio 3.6.3 (to configure your emulator)
+6. Preinstall Todoist application in your emulator.
 
 Please be noted I have setup my Todoist account manually
 
