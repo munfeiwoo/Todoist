@@ -2,6 +2,7 @@
 
 This is part of test automation challenge posted by Setel to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and python 3.8.
 
+
 # Machine setup
 1. Python 3.8
 2. pip
@@ -9,6 +10,8 @@ This is part of test automation challenge posted by Setel to perform test automa
 4. Appium 1.17.1
 5. Andriod studio to configure your emulator
 6. Preinstall Todoist application in your emulator
+
+Please be noted I have setup my Todoist account manually
 
 # Overview of the test structure or framework
 Overall test framework is based on pytest and following page object model concept to improve on maintainability of the UI or codes. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line execution).
