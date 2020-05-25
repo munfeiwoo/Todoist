@@ -18,7 +18,7 @@ Please execute the following command to clone the project in your working direct
 ```buildoutcfg
     git clone https://github.com/munfeiwoo/setel.git
 ```
-Execute the following command to install all dependencies
+Execute the following command in the setel project folder to install all dependencies 
 ```buildoutcfg
     pipenv install
 ```
