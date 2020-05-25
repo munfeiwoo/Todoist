@@ -4,7 +4,7 @@ import json
 
 from appium import webdriver
 
-CONFIG_PATH = '..\\config\\config.json'
+CONFIG_PATH = 'config\\config.json'
 
 
 def pytest_addoption(parser):
