@@ -19,7 +19,11 @@ Each test was scripted as an independent test to ensure the test could be execut
 
 There are markers for each test to add flexibility to execute certain test cases
 
-Please be noted that "setel>pages>web" and "setel>web" folder are just to demonstrate potential structure for adding page objects and test automation for web in the future     
+Please be noted the following folders are just to demonstrate potential structure for adding page objects and test automation for web in the future
+```
+   "setel>pages>web"
+   "setel>web" folder      
+```
 
 # Cloning the project and install required dependencies
 Please execute the following command to clone the project in your working directory
