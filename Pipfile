@@ -13,3 +13,6 @@ appium-python-client = "*"
 
 [requires]
 python_version = "3.8"
+requests = "*"
+appium-python-client = "*"
+pytest = "*"
