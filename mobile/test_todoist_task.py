@@ -70,6 +70,7 @@ def test_task_creation(app, api, user):
     assert (response.status_code == 404)
     log.info('Project removed successfully')
 
+
 @pytest.mark.P1
 @pytest.mark.Task
 @pytest.mark.Mobile
