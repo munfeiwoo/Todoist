@@ -11,7 +11,7 @@ This is part of test automation challenge posted by Setel. I am using pytest fra
 6. Preinstall Todoist application in your emulator
 
 # Overview of the test structure or framework
-Overall test framework is based on pytest and following page object model concept to improve on maintainability of the UI or codes. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line exection).
+Overall test framework is based on pytest and following page object model concept to improve on maintainability of the UI or codes. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line execution).
 
 Please be noted of the assertions made in the API call to ensure any error being captured or prompted
 
