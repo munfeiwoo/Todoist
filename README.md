@@ -9,7 +9,7 @@ This is part of test automation challenge posted by Setel to perform test automa
 3. pipenv 2018.11.26
 4. Appium 1.17.1
 5. Andriod studio 3.6.3 (to configure your emulator)
-6. Preinstall Todoist application in your emulator. 
+6. Preinstall Todoist application in your emulator 
 
 Please be noted I have setup my Todoist account manually and I have installed the Todoist app from Google Playstore in the emulator since I was getting page not found error when accessing to http://files.slatestudio.com/sr82 provided in the assignment 
 
@@ -24,7 +24,7 @@ Each test was scripted as an independent test to ensure the test could be execut
 
 There are markers for each test to add flexibility to execute certain test cases
 
-Please be noted the following folders are just to demonstrate potential structure for adding page objects and test automation for web in the future
+Please be noted the following folders are just to demonstrate potential structure for adding page objects and test automation for web in the future. 
 
 ```
    setel
@@ -32,6 +32,13 @@ Please be noted the following folders are just to demonstrate potential structur
    |   |-----web
    |---web      
 ```
+
+The current test structure is just for the purpose of test automation demonstration covering scenarios mentioned in the assignment and there could be further enhancements to framework.
+
+    1. Test “Create Project”
+    2. Test “Create Task via mobile phone”
+    3. Test “Reopen Task”
+
 
 # Cloning the project and install required dependencies
 Please execute the following command to clone the project in your working directory
@@ -47,14 +54,14 @@ Execute the following command in the setel project folder to install all depende
 
 You could configure the following values in the config.json file. API and mobile app test will retrieve required setup values from this file
 
-1. token: API token as provided by Todoist
-2. project_task_url: end point to project task REST api (https://api.todoist.com/rest/v1/tasks)
-3. project_url: end point to project REST api (https://api.todoist.com/rest/v1/tasks)
-4. email: email used for your Todoist account 
-5. password: Todoist password
-6. appium_server: url to appium server
-7. platform_version: platform version of the emulator
-8. platform_name: platform name of the emulator
+    1. token: API token as provided by Todoist
+    2. project_task_url: end point to project task REST api (https://api.todoist.com/rest/v1/tasks)
+    3. project_url: end point to project REST api (https://api.todoist.com/rest/v1/tasks)
+    4. email: email used for your Todoist account 
+    5. password: Todoist password
+    6. appium_server: url to appium server
+    7. platform_version: platform version of the emulator
+    8. platform_name: platform name of the emulator
 
 Please be noted that the configuration of the test is flexible and could be changed depending on your test setup. You could also provide those values in command prompt. Configuration values will be taken from config.json file if no value provided in command prompt
 
