@@ -4,12 +4,12 @@ This is part of test automation challenge posted by Setel to perform test automa
 
 
 # Machine setup
-1. Python 3.8
-2. pip 20.1
-3. pipenv 2018.11.26
-4. Appium 1.17.1
-5. Andriod studio 3.6.3 (to configure your emulator)
-6. Preinstall Todoist application in your emulator 
+    1. Python 3.8
+    2. pip 20.1
+    3. pipenv 2018.11.26
+    4. Appium 1.17.1
+    5. Andriod studio 3.6.3 (to configure your emulator)
+    6. Preinstall Todoist application in your emulator 
 
 Please be noted I have setup my Todoist account manually and I have installed the Todoist app from Google Playstore in the emulator since I was getting page not found error when accessing to http://files.slatestudio.com/sr82 provided in the assignment 
 
