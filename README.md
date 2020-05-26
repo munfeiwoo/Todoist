@@ -56,7 +56,7 @@ You could configure the following values in the config.json file. API and mobile
 7. platform_version: platform version of the emulator
 8. platform_name: platform name of the emulator
 
-Please be noted that the configuration of the test is flexible and could be changed depending on your test setup. You could also provide those values in command prompt. Configuration values will be taken from Config.json file if no value provided in command prompt
+Please be noted that the configuration of the test is flexible and could be changed depending on your test setup. You could also provide those values in command prompt. Configuration values will be taken from config.json file if no value provided in command prompt
 
 Available configuration for API test in command prompt
 
