@@ -9,21 +9,23 @@ This is part of test automation challenge posted by Setel to perform test automa
 3. pipenv 2018.11.26
 4. Appium 1.17.1
 5. Andriod studio 3.6.3 (to configure your emulator)
-6. Preinstall Todoist application in your emulator.
+6. Preinstall Todoist application in your emulator. 
 
-Please be noted I have setup my Todoist account manually
+Please be noted I have setup my Todoist account manually and I have installed the Todoist app from Google Playstore in the emulator since I was getting page not found error when accessing to http://files.slatestudio.com/sr82 provided in the assignemnt 
 
 
 # Overview of the test structure or framework
-The test framework is based on pytest and I am following page object model concept to improve on maintainability of the UI or codes. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line execution).
 
-Please be noted of the assertions made in the API call to ensure any error being captured or prompted
+The test framework is based on pytest and I am following page object model concept to improve on maintainability of the test automation codes if there is any UI changes later on. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line execution).
 
-Each test was scripted as an independent test to ensure the test could be executed as a standalone and representing a user story or feature
+Please be noted that there are assertions made in the API calls code to ensure any unexpected error at the API level being captured or prompted
+
+Each test was scripted as an independent test to ensure the test could be executed as a standalone and also representing a user story or feature
 
 There are markers for each test to add flexibility to execute certain test cases
 
 Please be noted the following folders are just to demonstrate potential structure for adding page objects and test automation for web in the future
+
 ```
    setel
    |---pages
@@ -36,7 +38,7 @@ Please execute the following command to clone the project in your working direct
 ```buildoutcfg
     git clone https://github.com/munfeiwoo/setel.git
 ```
-Execute the following command in the setel project folder to install all dependencies 
+Execute the following command in the setel project folder to install all dependencies to run the test 
 ```buildoutcfg
     pipenv install
 ```
@@ -54,7 +56,7 @@ You could configure the following values in the config.json file. API and mobile
 7. platform_version: platform version of the emulator
 8. platform_name: platform name of the emulator
 
-Please be noted that the configuration is flexible and could change depending on your test setup and you could provide those values on command prompt. Configuration values will be taken from Config.json file if no value provided in command prompt
+Please be noted that the configuration of the test is flexible and could be changed depending on your test setup. You could also provide those values in command prompt. Configuration values will be taken from Config.json file if no value provided in command prompt
 
 Available configuration for API test in command prompt
 
