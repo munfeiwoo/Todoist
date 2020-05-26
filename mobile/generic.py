@@ -2,7 +2,7 @@ import time
 
 from pages.mobile.todoist_leftNav import TodoistLeftNav
 from pages.mobile.todoist_settings import TodoistSettings
-from pages.mobile.todoist_about import TodoistA
+from pages.mobile.todoist_about import TodoistAbout
 
 class TodoistGeneric:
 
