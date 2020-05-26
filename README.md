@@ -37,7 +37,7 @@ The current test structure is just for the purpose of test automation demonstrat
     2. Test “Create Task via mobile phone”
     3. Test “Reopen Task”
 
-It is a best practice to ensure each automated test case is independent and self-contained. As such, I have rework the steps provided in scenario 2 and 3 not to depends on project and task created in earlier test scenario but still achieving the same test objective. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a Setup, Body and Teardown section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
+It is a best practice to ensure each automated test case is independent and self-contained. As such, I have rework the steps provided in scenario 2 and 3 not to depends on project and task created in earlier test scenario but still achieving the same test objective. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a **Setup**, **Body** and **Teardown** section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
 
 We could have more discussions during the interview.
 
