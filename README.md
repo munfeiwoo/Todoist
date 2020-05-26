@@ -1,6 +1,6 @@
 # Setel test-automation-challenge
 
-This is part of test automation challenge posted by Setel to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and Python 3.8.
+This is part of test automation challenge posted by Setel to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and Python 3.8. (Please refer to the next section on the setup of my machine)
 
 
 # Machine setup
@@ -18,9 +18,7 @@ Please be noted I have setup my Todoist account manually and I have installed th
 
 The test framework is based on pytest and I am following page object model concept to improve on maintainability of the test automation codes if there is any UI changes later on. You could run both API test and mobile test separately according to your CI/CD setup (please refer to the example command line execution).
 
-Please be noted that there are assertions made in the API calls code to ensure any unexpected error at the API level being captured or prompted
-
-Each test was scripted as an independent test to ensure the test could be executed as a standalone and also representing a user story or feature
+Please be noted that there are assertions made in the API calls to ensure any unexpected error at the API level being captured or prompted
 
 There are markers for each test to add flexibility to execute certain test cases
 
@@ -38,6 +36,10 @@ The current test structure is just for the purpose of test automation demonstrat
     1. Test “Create Project”
     2. Test “Create Task via mobile phone”
     3. Test “Reopen Task”
+
+It is a best practice to ensure each automated test case is independent and self-contained. As such, I have rework the steps provided in scenario 2 and 3 not to depends on project and task created in earlier test scenario but still achieving the same test objective. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a Setup, Body and Teardown section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
+
+We could have more discussions during the interview.
 
 
 # Cloning the project and install required dependencies
