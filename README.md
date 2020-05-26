@@ -91,7 +91,7 @@ To test all project releated API
 pipenv run python -m pytest c:\setel\API -m "Project"
 ```
 
-To test all task releated API
+To test all task related API
 ```
 pipenv run python -m pytest c:\setel\API -m "Task"
 ```
