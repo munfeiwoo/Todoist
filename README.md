@@ -11,7 +11,7 @@ This is part of test automation challenge posted by Setel to perform test automa
 5. Andriod studio 3.6.3 (to configure your emulator)
 6. Preinstall Todoist application in your emulator. 
 
-Please be noted I have setup my Todoist account manually and I have installed the Todoist app from Google Playstore in the emulator since I was getting page not found error when accessing to http://files.slatestudio.com/sr82 provided in the assignemnt 
+Please be noted I have setup my Todoist account manually and I have installed the Todoist app from Google Playstore in the emulator since I was getting page not found error when accessing to http://files.slatestudio.com/sr82 provided in the assignment 
 
 
 # Overview of the test structure or framework
