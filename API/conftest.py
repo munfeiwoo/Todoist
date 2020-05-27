@@ -2,6 +2,8 @@ import pytest
 import os
 import json
 
+from util.fileaccess import load_json_file
+
 CONFIG_PATH = 'config\\config.json'
 API_TOKEN = ''
 API_PROJECT_URL = ''
@@ -27,9 +29,7 @@ def pytest_configure(config):
 @pytest.fixture(scope='session')
 def configure():
     # Read the JSON config file and returns it as a parsed dict
-    with open(CONFIG_PATH) as config_file:
-        data = json.load(config_file)
-    return data
+    return load_json_file(CONFIG_PATH)
 
 
 @pytest.fixture(scope='session')
