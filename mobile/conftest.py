@@ -171,7 +171,7 @@ def app(config_platform_name, config_appium_server, config_platform_version, req
     desired_caps = dict()
     desired_caps['platformName'] = config_platform_name
     desired_caps['platformVersion'] = config_platform_version
-    if DEVICE_NAME != '':
+    if DEVICE_NAME != 'None':
         desired_caps['udid'] = DEVICE_NAME
     desired_caps['appPackage'] = 'com.todoist'
     desired_caps['appActivity'] = 'com.todoist.activity.HomeActivity'
