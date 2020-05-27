@@ -5,12 +5,21 @@ import json
 from appium import webdriver
 
 CONFIG_PATH = 'config\\config.json'
-
+DEVICE_NAME = ''
+APPIUM_SERVER = ''
+PLATFORM_NAME = ''
+PLATFORM_VERSION = ''
+TOKEN = ''
+PROJECT_URL = ''
+PROJECT_TASK_URL = ''
+EMAIL = ''
+PASSWORD = ''
 
 def pytest_addoption(parser):
     parser.addoption("--appiumserver", action="store", default="None")
     parser.addoption("--platformname", action="store", default="None")
     parser.addoption("--platformversion", action="store", default="None")
+    parser.addoption("--devicename", action="store", default="None")
     parser.addoption("--token", action="store", default="None")
     parser.addoption("--projecturl", action="store", default="None")
     parser.addoption("--projecttaskurl", action="store", default="None")
@@ -19,15 +28,25 @@ def pytest_addoption(parser):
 
 
 def pytest_configure(config):
-    os.environ['appiumserver'] = config.getoption('appiumserver')
-    os.environ['platformname'] = config.getoption('platformname')
-    os.environ['platformversion'] = config.getoption('platformversion')
-    os.environ['token'] = config.getoption('token')
-    os.environ['projecturl'] = config.getoption('projecturl')
-    os.environ['projecttaskurl'] = config.getoption('projecttaskurl')
-    os.environ['email'] = config.getoption('email')
-    os.environ['password'] = config.getoption('password')
+    global DEVICE_NAME
+    global APPIUM_SERVER
+    global PLATFORM_NAME
+    global PLATFORM_VERSION
+    global TOKEN
+    global PROJECT_URL
+    global PROJECT_TASK_URL
+    global EMAIL
+    global PASSWORD
 
+    APPIUM_SERVER = config.getoption('appiumserver')
+    PLATFORM_NAME = config.getoption('platformname')
+    PLATFORM_VERSION = config.getoption('platformversion')
+    TOKEN = config.getoption('token')
+    PROJECT_URL = config.getoption('projecturl')
+    PROJECT_TASK_URL = config.getoption('projecttaskurl')
+    EMAIL = config.getoption('email')
+    PASSWORD = config.getoption('password')
+    DEVICE_NAME = config.getoption('devicename')
 
 @pytest.fixture(scope='session')
 def configure():
@@ -41,10 +60,8 @@ def configure():
 def config_platform_name(configure):
     # Validate and return the browser choice from the config data
 
-    platform = os.getenv('platformname')
-
-    if platform != 'None':
-        return platform
+    if PLATFORM_NAME != 'None':
+        return PLATFORM_NAME
     else:
         if 'platform_name' not in configure:
             raise Exception('The config file does not contain "platform_name"')
@@ -53,10 +70,9 @@ def config_platform_name(configure):
 
 @pytest.fixture(scope='session')
 def config_appium_server(configure):
-    appium_server = os.getenv('appiumserver')
 
-    if appium_server != 'None':
-        return appium_server
+    if APPIUM_SERVER != 'None':
+        return APPIUM_SERVER
     else:
         if 'appium_server' not in configure:
             raise Exception('The config file does not contain "appium_server"')
@@ -65,10 +81,9 @@ def config_appium_server(configure):
 
 @pytest.fixture(scope='session')
 def config_platform_version(configure):
-    platform_version = os.getenv('platform_version')
 
-    if platform_version != 'None':
-        return platform_version
+    if PLATFORM_VERSION != 'None':
+        return PLATFORM_VERSION
     else:
         if 'platform_version' not in configure:
             raise Exception('The config file does not contain "platform_version"')
@@ -79,10 +94,8 @@ def config_platform_version(configure):
 def config_token(configure):
     # Validate and return the browser choice from the config data
 
-    token = os.getenv('token')
-
-    if token != 'None':
-        return token
+    if TOKEN != 'None':
+        return TOKEN
     else:
         if 'token' not in configure:
             raise Exception('The config file does not contain "token"')
@@ -91,10 +104,9 @@ def config_token(configure):
 
 @pytest.fixture(scope='session')
 def config_project_url(configure):
-    project_url = os.getenv('projecturl')
 
-    if project_url != 'None':
-        return project_url
+    if PROJECT_URL != 'None':
+        return PROJECT_URL
     else:
         if 'project_url' not in configure:
             raise Exception('The config file does not contain "project_url"')
@@ -103,10 +115,9 @@ def config_project_url(configure):
 
 @pytest.fixture(scope='session')
 def config_project_task_url(configure):
-    project_task_url = os.getenv('projecttaskurl')
 
-    if project_task_url != 'None':
-        return project_task_url
+    if PROJECT_TASK_URL != 'None':
+        return PROJECT_TASK_URL
     else:
         if 'project_task_url' not in configure:
             raise Exception('The config file does not contain "project_task_url"')
@@ -115,10 +126,9 @@ def config_project_task_url(configure):
 
 @pytest.fixture(scope='session')
 def config_email(configure):
-    email = os.getenv('email')
 
-    if email != 'None':
-        return email
+    if EMAIL != 'None':
+        return EMAIL
     else:
         if 'email' not in configure:
             raise Exception('The config file does not contain "email"')
@@ -127,15 +137,13 @@ def config_email(configure):
 
 @pytest.fixture(scope='session')
 def config_password(configure):
-    password = os.getenv('password')
 
-    if password != 'None':
-        return password
+    if PASSWORD != 'None':
+        return PASSWORD
     else:
         if 'password' not in configure:
             raise Exception('The config file does not contain "password"')
         return configure['password']
-
 
 @pytest.fixture
 def user(config_email, config_password, request):
@@ -163,6 +171,8 @@ def app(config_platform_name, config_appium_server, config_platform_version, req
     desired_caps = dict()
     desired_caps['platformName'] = config_platform_name
     desired_caps['platformVersion'] = config_platform_version
+    if DEVICE_NAME != '':
+        desired_caps['udid'] = DEVICE_NAME
     desired_caps['appPackage'] = 'com.todoist'
     desired_caps['appActivity'] = 'com.todoist.activity.HomeActivity'
     desired_caps['noRest'] = 'True'
