@@ -6,7 +6,7 @@ from appium import webdriver
 from util.fileaccess import load_json_file
 
 CONFIG_PATH = 'config\\config.json'
-DEVICE_NAME = ''
+UDID = ''
 APPIUM_SERVER = ''
 PLATFORM_NAME = ''
 PLATFORM_VERSION = ''
@@ -16,11 +16,12 @@ PROJECT_TASK_URL = ''
 EMAIL = ''
 PASSWORD = ''
 
+
 def pytest_addoption(parser):
     parser.addoption("--appiumserver", action="store", default="None")
     parser.addoption("--platformname", action="store", default="None")
     parser.addoption("--platformversion", action="store", default="None")
-    parser.addoption("--devicename", action="store", default="None")
+    parser.addoption("--udid", action="store", default="None")
     parser.addoption("--token", action="store", default="None")
     parser.addoption("--projecturl", action="store", default="None")
     parser.addoption("--projecttaskurl", action="store", default="None")
@@ -29,7 +30,7 @@ def pytest_addoption(parser):
 
 
 def pytest_configure(config):
-    global DEVICE_NAME
+    global UDID
     global APPIUM_SERVER
     global PLATFORM_NAME
     global PLATFORM_VERSION
@@ -47,7 +48,7 @@ def pytest_configure(config):
     PROJECT_TASK_URL = config.getoption('projecttaskurl')
     EMAIL = config.getoption('email')
     PASSWORD = config.getoption('password')
-    DEVICE_NAME = config.getoption('devicename')
+    UDID = config.getoption('udid')
 
 @pytest.fixture(scope='session')
 def configure():
@@ -170,8 +171,8 @@ def app(config_platform_name, config_appium_server, config_platform_version, req
     desired_caps = dict()
     desired_caps['platformName'] = config_platform_name
     desired_caps['platformVersion'] = config_platform_version
-    if DEVICE_NAME != 'None':
-        desired_caps['udid'] = DEVICE_NAME
+    if UDID != 'None':
+        desired_caps['udid'] = UDID
     desired_caps['appPackage'] = 'com.todoist'
     desired_caps['appActivity'] = 'com.todoist.activity.HomeActivity'
     desired_caps['noRest'] = 'True'
