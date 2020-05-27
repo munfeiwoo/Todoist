@@ -105,7 +105,7 @@ Available configuration for modile test in command prompt
 
 # Example of command line text execution
 
-Please ensure you are in the project holder(e.g. c:\setel)
+Please ensure you are in the project holder (e.g. c:\setel)
 
 #### **API test**
 
