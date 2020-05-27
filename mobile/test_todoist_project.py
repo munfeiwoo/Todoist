@@ -21,8 +21,8 @@ def test_create_project(app, api, user):
     log.info('Setting up test environment for test_create_project')
     # project name used for each automated test must be unique to ensure each test is standalone
     project_name = 'test_create_project'
-    token = api['token']
-    project_url = api['project_url']
+    token = api['api_token']
+    project_url = api['api_project_url']
     email = user['email']
     password = user['password']
 

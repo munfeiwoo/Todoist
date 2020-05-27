@@ -1,7 +1,7 @@
 {
-  "token": "48764aec664c997af8010ad80cb2beb10761b47f",
-  "project_task_url": "https://api.todoist.com/rest/v1/tasks",
-  "project_url": "https://api.todoist.com/rest/v1/projects",
+  "api_token": "48764aec664c997af8010ad80cb2beb10761b47f",
+  "api_project_task_url": "https://api.todoist.com/rest/v1/tasks",
+  "api_project_url": "https://api.todoist.com/rest/v1/projects",
   "email": "munfei.woo@gmail.com",
   "password": "setel2020",
   "appium_server": "http://localhost:4723/wd/hub",

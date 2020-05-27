@@ -92,14 +92,13 @@ def config_platform_version(configure):
 
 @pytest.fixture(scope='session')
 def config_token(configure):
-    # Validate and return the browser choice from the config data
 
     if TOKEN != 'None':
         return TOKEN
     else:
-        if 'token' not in configure:
+        if 'api_token' not in configure:
             raise Exception('The config file does not contain "token"')
-        return configure['token']
+        return configure['api_token']
 
 
 @pytest.fixture(scope='session')
@@ -108,9 +107,9 @@ def config_project_url(configure):
     if PROJECT_URL != 'None':
         return PROJECT_URL
     else:
-        if 'project_url' not in configure:
+        if 'api_project_url' not in configure:
             raise Exception('The config file does not contain "project_url"')
-        return configure['project_url']
+        return configure['api_project_url']
 
 
 @pytest.fixture(scope='session')
@@ -119,9 +118,9 @@ def config_project_task_url(configure):
     if PROJECT_TASK_URL != 'None':
         return PROJECT_TASK_URL
     else:
-        if 'project_task_url' not in configure:
+        if 'api_project_task_url' not in configure:
             raise Exception('The config file does not contain "project_task_url"')
-        return configure['project_task_url']
+        return configure['api_project_task_url']
 
 
 @pytest.fixture(scope='session')
@@ -159,9 +158,9 @@ def api(config_token, config_project_url, config_project_task_url, request):
     # Initialize WebDriver
 
     test_config = dict()
-    test_config['token'] = config_token
-    test_config['project_url'] = config_project_url
-    test_config['project_task_url'] = config_project_task_url
+    test_config['api_token'] = config_token
+    test_config['api_project_url'] = config_project_url
+    test_config['api_project_task_url'] = config_project_task_url
     return test_config
 
 

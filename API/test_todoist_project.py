@@ -59,8 +59,8 @@ def api_remove_all_projects(token, project_url):
 @pytest.mark.API
 def test_create_and_delete_project(api_test_config):
     project_name = "project3"
-    token = api_test_config['token']
-    project_url = api_test_config['project_url']
+    token = api_test_config['api_token']
+    project_url = api_test_config['api_project_url']
     project_id = api_create_new_project(token, project_url, project_name)
     assert (project_id > 0)
     time.sleep(10)
@@ -74,6 +74,6 @@ def test_create_and_delete_project(api_test_config):
 @pytest.mark.Project
 @pytest.mark.API
 def test_remove_all_projects(api_test_config):
-    token = api_test_config['token']
-    project_url = api_test_config['project_url']
+    token = api_test_config['api_token']
+    project_url = api_test_config['api_project_url']
     api_remove_all_projects(token, project_url)

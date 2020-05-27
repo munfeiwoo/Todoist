@@ -25,9 +25,9 @@ def test_task_creation(app, api, user):
     project_name = 'test_task_creation'
     task_title = 'testing 123'
     task_datetime = '26 June 2020 11am'
-    token = api['token']
-    project_url = api['project_url']
-    project_task_url = api['project_task_url']
+    token = api['api_token']
+    project_url = api['api_project_url']
+    project_task_url = api['api_project_task_url']
     email = user['email']
     password = user['password']
 
@@ -91,9 +91,9 @@ def test_reopen_task(app, api, user):
     project_name = 'reopen_task'
     task_title = 'testing 1234'
     task_datetime = '26 June 2020 11am'
-    token = api['token']
-    project_url = api['project_url']
-    project_task_url = api['project_task_url']
+    token = api['api_token']
+    project_url = api['api_project_url']
+    project_task_url = api['api_project_task_url']
     email = user['email']
     password = user['password']
 

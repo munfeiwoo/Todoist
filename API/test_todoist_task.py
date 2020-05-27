@@ -74,9 +74,9 @@ def test_create_and_get_tasks_details(api_test_config):
     project_name = "project_task1"
     task_title = "testing 12345"
     task_due = "26 June 2020"
-    token = api_test_config['token']
-    project_task_url = api_test_config['project_task_url']
-    project_url = api_test_config['project_url']
+    token = api_test_config['api_token']
+    project_task_url = api_test_config['api_project_task_url']
+    project_url = api_test_config['api_project_url']
 
     project_id = api_create_new_project(token, project_url, project_name)
     assert (project_id > 0)

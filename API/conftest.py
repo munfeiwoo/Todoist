@@ -3,6 +3,9 @@ import os
 import json
 
 CONFIG_PATH = 'config\\config.json'
+API_TOKEN = ''
+API_PROJECT_URL = ''
+API_PROJECT_TASK_URL = ''
 
 
 def pytest_addoption(parser):
@@ -12,9 +15,13 @@ def pytest_addoption(parser):
 
 
 def pytest_configure(config):
-    os.environ['apitoken'] = config.getoption('apitoken')
-    os.environ['apiprojecturl'] = config.getoption('apiprojecturl')
-    os.environ['apiprojecttaskurl'] = config.getoption('apiprojecttaskurl')
+    global API_TOKEN
+    global API_PROJECT_URL
+    global API_PROJECT_TASK_URL
+
+    API_TOKEN = config.getoption('apitoken')
+    API_PROJECT_URL = config.getoption('apiprojecturl')
+    API_PROJECT_TASK_URL = config.getoption('apiprojecttaskurl')
 
 
 @pytest.fixture(scope='session')
@@ -29,38 +36,34 @@ def configure():
 def config_token(configure):
     # Validate and return the browser choice from the config data
 
-    token = os.getenv('apitoken')
-
-    if token != 'None':
-        return token
+    if API_TOKEN != 'None':
+        return API_TOKEN
     else:
-        if 'token' not in configure:
+        if 'api_token' not in configure:
             raise Exception('The config file does not contain "token"')
-        return configure['token']
+        return configure['api_token']
 
 
 @pytest.fixture(scope='session')
 def config_project_url(configure):
-    project_url = os.getenv('apiprojecturl')
 
-    if project_url != 'None':
-        return project_url
+    if API_PROJECT_URL != 'None':
+        return API_PROJECT_URL
     else:
-        if 'project_url' not in configure:
+        if 'api_project_url' not in configure:
             raise Exception('The config file does not contain "project_url"')
-        return configure['project_url']
+        return configure['api_project_url']
 
 
 @pytest.fixture(scope='session')
 def config_project_task_url(configure):
-    project_task_url = os.getenv('apiprojecttaskurl')
 
-    if project_task_url != 'None':
-        return project_task_url
+    if API_PROJECT_TASK_URL != 'None':
+        return API_PROJECT_TASK_URL
     else:
-        if 'project_task_url' not in configure:
+        if 'api_project_task_url' not in configure:
             raise Exception('The config file does not contain "project_task_url"')
-        return configure['project_task_url']
+        return configure['api_project_task_url']
 
 
 @pytest.fixture
@@ -68,7 +71,7 @@ def api_test_config(config_token, config_project_url, config_project_task_url, r
     # Initialize WebDriver
 
     config = dict()
-    config['token'] = config_token
-    config['project_url'] = config_project_url
-    config['project_task_url'] = config_project_task_url
+    config['api_token'] = config_token
+    config['api_project_url'] = config_project_url
+    config['api_project_task_url'] = config_project_task_url
     return config
