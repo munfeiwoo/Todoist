@@ -89,7 +89,7 @@ def test_reopen_task(app, api, user):
     log.info('Setting up test environment to create project')
     # project name used for each automated test must be unique to ensure each test is standalone
     project_name = 'reopen_task'
-    task_title = 'testing 123'
+    task_title = 'testing 1234'
     task_datetime = '26 June 2020 11am'
     token = api['token']
     project_url = api['project_url']
@@ -133,7 +133,7 @@ def test_reopen_task(app, api, user):
     project_page.submit_task_schedule(task_datetime)
     project_page.submit_schedule()
     project_page.submit_task()
-    time.sleep(3)
+    time.sleep(5)
     log.info('Task created to project ({})'.format(project_name))
 
     log.info('API CALL: Get task id by task title')
