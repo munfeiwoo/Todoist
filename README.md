@@ -101,7 +101,7 @@ Available configuration for modile test in command prompt
   --projecttaskurl
   --email
   --password
-  --devicename
+  --udid
 ```
 
 # Example of command line text execution
@@ -157,9 +157,9 @@ To test Task and Project related test in parallel on different Appium server and
 ```
     Please run on different terminal
 
-    pipenv run python -m pytest .\mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --devicename="emulator-5554"
+    pipenv run python -m pytest .\mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --udid="emulator-5554"
 
-    pipenv run python -m pytest .\mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --devicename="emulator-5556"    
+    pipenv run python -m pytest .\mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --udid="emulator-5556"    
 ```
 
 # Proof of Execution
