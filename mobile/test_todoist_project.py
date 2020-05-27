@@ -2,7 +2,8 @@ import pytest
 import time
 import logging
 
-from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details
+from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
+    api_get_project_id_by_project_name
 from pages.mobile.todoist_leftNav import TodoistLeftNav
 from pages.mobile.todoist_login import TodoistLogin
 from pages.mobile.todoist_manage_project import TodoistManageProject
@@ -18,15 +19,25 @@ def test_create_project(app, api, user):
 
     # Setup
     log.info('Setting up test environment for test_create_project')
-    project_name = 'Setel Project1'
+    # project name used for each automated test must be unique to ensure each test is standalone
+    project_name = 'test_create_project'
     token = api['token']
     project_url = api['project_url']
     email = user['email']
     password = user['password']
-    log.info('Create project using API')
+
+    project_id = api_get_project_id_by_project_name(token, project_url, project_name)
+    if project_id is not None:
+        log.info('API CALL: Clean up project data')
+        api_delete_project(token, project_url, project_id)
+        response = api_get_project_details(token, project_url, project_id)
+        assert (response.status_code == 404)
+        log.info('Project removed successfully during setup')
+
+    log.info('API CALL: Create project using API')
     project_id = api_create_new_project(token, project_url, project_name)
-    assert (project_id > 0)
-    log.info('Project created successfully')
+    assert (project_id is not None)
+    log.info('API CALL: Project created successfully')
 
     # Body
     log.info('Perform login')
