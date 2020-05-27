@@ -105,55 +105,58 @@ Available configuration for modile test in command prompt
 
 # Example of command line text execution
 
+Please ensure you are in the project holder(e.g. c:\setel)
+
 #### **API test**
 
 To execute test on API
 ```
-pipenv run python -m pytest c:\setel\API 
+pipenv run python -m pytest .\API 
 ```
 
 To test all project releated API
 ```
-pipenv run python -m pytest c:\setel\API -m "Project"
+pipenv run python -m pytest .\API -m "Project"
 ```
 
 To test all task related API
 ```
-pipenv run python -m pytest c:\setel\API -m "Task"
+pipenv run python -m pytest .\API -m "Task"
 ```
 
 To test all API passing token value in command prompt
 ```
-pipenv run python -m pytest c:\setel\API --apitoken="XXXXXXXX"
+pipenv run python -m pytest .\API --apitoken="XXXXXXXX"
 ```
 
 ##### **Mobile APP**
 
+
 To execute all mobile app test
 ```
-pipenv run python -m pytest c:\setel\mobile
+pipenv run python -m pytest .\mobile
 ```
 
 To execute task related mobile app test
 ```
-pipenv run python -m pytest c:\setel\mobile -m "Task"
+pipenv run python -m pytest .\mobile -m "Task"
 ```
 
 To execute project related mobile app test
 ```
-pipenv run python -m pytest c:\setel\mobile -m "Project"
+pipenv run python -m pytest .\mobile -m "Project"
 ```
 
 To test all mobile related test through passing token value in command prompt
 ```
-pipenv run python -m pytest c:\setel\mobile --token="XXXXXXXX"
+pipenv run python -m pytest .\mobile --token="XXXXXXXX"
 ```
 
 To test Task and Project related test in parallel on different Appium server and emulator
 ```
     Please run on different terminal
 
-    pipenv run python -m pytest c:\setel\Mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --devicename="emulator-5554"
+    pipenv run python -m pytest .\Mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --devicename="emulator-5554"
 
-    pipenv run python -m pytest c:\setel\Mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --devicename="emulator-5556"    
+    pipenv run python -m pytest .\Mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --devicename="emulator-5556"    
 ```
