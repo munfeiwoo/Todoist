@@ -156,7 +156,7 @@ To test Task and Project related test in parallel on different Appium server and
 ```
     Please run on different terminal
 
-    pipenv run python -m pytest .\Mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --devicename="emulator-5554"
+    pipenv run python -m pytest .\mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --devicename="emulator-5554"
 
-    pipenv run python -m pytest .\Mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --devicename="emulator-5556"    
+    pipenv run python -m pytest .\mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --devicename="emulator-5556"    
 ```
