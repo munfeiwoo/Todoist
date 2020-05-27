@@ -16,7 +16,7 @@ def api_create_new_project(token, project_url, project_name):
             "X-Request-Id": str(uuid.uuid4()),
             "Authorization": "Bearer {}".format(token)
         })
-    assert (response.status_code == 200)
+    assert response.status_code == 200,  'Response status should be 200'
     project = response.json()
     assert (project['name'] == project_name)
     return project['id']
@@ -25,7 +25,7 @@ def api_create_new_project(token, project_url, project_name):
 def api_delete_project(token, project_url, project_id):
     response = requests.delete(project_url + "/{}".format(project_id),
                                headers={"Authorization": "Bearer {}".format(token)})
-    assert (response.status_code == 204)
+    assert response.status_code == 204, 'Response status should be 204'
 
 
 def api_get_project_details(token, project_url, project_id):
@@ -62,14 +62,14 @@ def api_remove_projects_by_project_name(token, project_url, project_name):
         api_delete_project(token, project_url, project_id)
         # Verify if project deleted
         response = api_get_project_details(token, project_url, project_id)
-        assert (response.status_code == 404)
+        assert response.status_code == 404, 'Response status should be 404'
 
 
 def api_remove_project_by_project_id(token, project_url, project_id):
     api_delete_project(token, project_url, project_id)
     # Verify if project deleted
     response = api_get_project_details(token, project_url, project_id)
-    assert (response.status_code == 404)
+    assert response.status_code == 404, 'Response status should be 404'
 
 
 @pytest.mark.P1
@@ -80,7 +80,7 @@ def test_create_and_delete_project(api_test_config):
     token = api_test_config['api_token']
     project_url = api_test_config['api_project_url']
     project_id = api_create_new_project(token, project_url, project_name)
-    assert (project_id > 0)
+    assert project_id is not None, 'Project id should not be None'
     time.sleep(10)
 
     api_remove_project_by_project_id(token, project_url, project_id)
@@ -96,5 +96,5 @@ def test_remove_all_projects_by_project_name(api_test_config):
     x = range(2)
     for n in x:
         project_id = api_create_new_project(token, project_url, project_name)
-        assert (project_id is not None)
+        assert project_id is not None, 'Project id should not be None'
     api_remove_projects_by_project_name(token, project_url, project_name)

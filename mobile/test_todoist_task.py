@@ -36,7 +36,7 @@ def test_task_creation(app, api, user):
 
     log.info('API CALL: Create project using API')
     project_id = api_create_new_project(token, project_url, project_name)
-    assert (project_id is not None)
+    assert project_id is not None, 'Project id should not be None'
     log.info("API CALL: Project created successfully")
 
     # Body
@@ -64,7 +64,8 @@ def test_task_creation(app, api, user):
     time.sleep(5)
 
     log.info('API CALL: Verify task created using API')
-    assert (api_get_project_task_by_name(token, project_task_url, project_id, task_title) is not None)
+    assert api_get_project_task_by_name(token, project_task_url, project_id, task_title) is not None, \
+        'Task Title should not be None'
     log.info('API CALL: Task exist from API verification')
 
     # Teardown
@@ -95,7 +96,7 @@ def test_reopen_task(app, api, user):
 
     log.info('API CALL: Create project using API')
     project_id = api_create_new_project(token, project_url, project_name)
-    assert (project_id is not None)
+    assert project_id is not None, 'Project id should not be None'
     log.info('API CALL: Project created successfully')
 
     # Body
@@ -124,7 +125,7 @@ def test_reopen_task(app, api, user):
 
     log.info('API CALL: Get task id by task title')
     task_id = api_get_project_task_id_by_name(token, project_task_url, project_id, task_title)
-    assert (task_id is not None)
+    assert task_id is not None, 'Task id should not be None'
     log.info('API CALL: Task id returned successfully')
     app.back()
 
@@ -153,7 +154,8 @@ def test_reopen_task(app, api, user):
     time.sleep(5)
     left_nav.select_a_project_by_project_name(project_name)
     time.sleep(5)
-    assert (project_page.get_project_task_by_name(task_title) is not None)
+    assert project_page.get_project_task_by_name(task_title) is not None, \
+        'Should be able to find task "{}" in the project'.format(task_title)
     log.info('Task has been reopened successfully and displaying')
 
     # Teardown

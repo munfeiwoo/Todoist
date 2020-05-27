@@ -32,7 +32,7 @@ def test_create_project(app, api, user):
 
     log.info('API CALL: Create project using API')
     project_id = api_create_new_project(token, project_url, project_name)
-    assert (project_id is not None)
+    assert project_id is not None, 'Project id should not be None'
     log.info('API CALL: Project created successfully')
 
     # Body
