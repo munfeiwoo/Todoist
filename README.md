@@ -8,10 +8,20 @@ This is part of test automation challenge posted by Setel to perform test automa
     2. pip 20.1
     3. pipenv 2018.11.26
     4. Appium 1.17.1
-    5. Andriod studio 3.6.3 (to configure your emulator)
-    6. Preinstall Todoist application in your emulator 
+    5. Andriod studio 3.6.3 (to configure your emulator). 
+    6. Preinstall Todoist application in your emulator
+    
 
 Please be noted I have setup my Todoist account manually and I have installed the Todoist app from Google Playstore in the emulator since I was getting page not found error when accessing to http://files.slatestudio.com/sr82 provided in the assignment 
+
+**Emulator Setup**
+```
+    Device Definition: Nexus 5X
+    Release: Nougat
+    API Level: 25
+    ABI: x86
+    Target: Android 7.1.1 (Google Play)     
+```
 
 
 # Overview of the test structure or framework
@@ -37,7 +47,7 @@ The current test structure is just for the purpose of test automation demonstrat
     2. Test “Create Task via mobile phone”
     3. Test “Reopen Task”
 
-It is a best practice to ensure each automated test case is independent and self-contained. As such, I have rework the steps provided in scenario 2 and 3 not to depends on project and task created in earlier test scenario but still achieving the same test objective. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a Setup, Body and Teardown section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
+It is a best practice to ensure each automated test case is independent and self-contained. As such, I have rework the steps provided in scenario 2 and 3 not to depends on project and task created in earlier test scenario but still achieving the same test objective. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a **Setup**, **Body** and **Teardown** section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
 
 We could have more discussions during the interview.
 
