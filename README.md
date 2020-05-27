@@ -101,6 +101,7 @@ Available configuration for modile test in command prompt
   --projecttaskurl
   --email
   --password
+  --devicename
 ```
 
 # Example of command line text execution
