@@ -3,7 +3,7 @@ import time
 import logging
 
 from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
-    api_get_project_id_by_project_name
+    api_get_project_id_by_project_name, api_remove_projects_by_project_name, api_remove_project_by_project_id
 from pages.mobile.todoist_leftNav import TodoistLeftNav
 from pages.mobile.todoist_login import TodoistLogin
 from pages.mobile.todoist_manage_project import TodoistManageProject
@@ -26,13 +26,9 @@ def test_create_project(app, api, user):
     email = user['email']
     password = user['password']
 
-    project_id = api_get_project_id_by_project_name(token, project_url, project_name)
-    if project_id is not None:
-        log.info('API CALL: Clean up project data')
-        api_delete_project(token, project_url, project_id)
-        response = api_get_project_details(token, project_url, project_id)
-        assert (response.status_code == 404)
-        log.info('Project removed successfully during setup')
+    log.info('API CALL: Clean up project data')
+    api_remove_projects_by_project_name(token, project_url, project_name)
+    log.info('Project removed successfully during setup')
 
     log.info('API CALL: Create project using API')
     project_id = api_create_new_project(token, project_url, project_name)
@@ -61,7 +57,5 @@ def test_create_project(app, api, user):
 
     # Teardown
     log.info('Remove and clean up project')
-    api_delete_project(token, project_url, project_id)
-    response = api_get_project_details(token, project_url, project_id)
-    assert (response.status_code == 404)
+    api_remove_project_by_project_id(token, project_url, project_id)
     log.info('Project removed successfully')

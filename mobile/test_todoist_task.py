@@ -3,12 +3,12 @@ import time
 import logging
 
 from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
-    api_get_project_id_by_project_name
+    api_get_project_id_by_project_name, api_remove_projects_by_project_name, api_remove_project_by_project_id
 from API.test_todoist_task import api_get_project_task_by_name, api_get_project_task_id_by_name, api_reopen_task
 from pages.mobile.todoist_login import TodoistLogin
 from pages.mobile.todoist_leftNav import TodoistLeftNav
 from pages.mobile.todoist_project import TodoistProject
-from mobile.generic import TodoistGeneric
+from mobile.generic import sync_data
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger()
@@ -18,7 +18,6 @@ log = logging.getLogger()
 @pytest.mark.Task
 @pytest.mark.Mobile
 def test_task_creation(app, api, user):
-
     # Setup
     log.info('Setting up test environment to create_project')
     # project name used for each automated test must be unique to ensure each test is standalone
@@ -31,16 +30,12 @@ def test_task_creation(app, api, user):
     email = user['email']
     password = user['password']
 
-    project_id = api_get_project_id_by_project_name(token, project_url, project_name)
-    if project_id is not None:
-        log.info('API CALL: Clean up project data')
-        api_delete_project(token, project_url, project_id)
-        response = api_get_project_details(token, project_url, project_id)
-        assert (response.status_code == 404)
-        log.info('Project removed successfully during setup ')
+    log.info('API CALL: Clean up project data')
+    api_remove_projects_by_project_name(token, project_url, project_name)
+    log.info('Project removed successfully during setup')
 
     log.info('API CALL: Create project using API')
-    project_id = api_create_new_project(token, project_url,project_name)
+    project_id = api_create_new_project(token, project_url, project_name)
     assert (project_id is not None)
     log.info("API CALL: Project created successfully")
 
@@ -74,9 +69,7 @@ def test_task_creation(app, api, user):
 
     # Teardown
     log.info('Remove and clean up project')
-    api_delete_project(token, project_url, project_id)
-    response = api_get_project_details(token, project_url,project_id)
-    assert (response.status_code == 404)
+    api_remove_project_by_project_id(token, project_url, project_id)
     log.info('Project removed successfully')
 
 
@@ -84,7 +77,6 @@ def test_task_creation(app, api, user):
 @pytest.mark.Task
 @pytest.mark.Mobile
 def test_reopen_task(app, api, user):
-
     # Setup
     log.info('Setting up test environment to create project')
     # project name used for each automated test must be unique to ensure each test is standalone
@@ -97,15 +89,9 @@ def test_reopen_task(app, api, user):
     email = user['email']
     password = user['password']
 
-
-    project_id = api_get_project_id_by_project_name(token, project_url, project_name)
-    if project_id is not None:
-        log.info('API CALL: Clean up project data')
-        api_delete_project(token, project_url, project_id)
-        response = api_get_project_details(token, project_url, project_id)
-        assert (response.status_code == 404)
-        log.info('Project removed successfully during setup ')
-
+    log.info('API CALL: Clean up project data')
+    api_remove_projects_by_project_name(token, project_url, project_name)
+    log.info('Project removed successfully during setup')
 
     log.info('API CALL: Create project using API')
     project_id = api_create_new_project(token, project_url, project_name)
@@ -138,7 +124,7 @@ def test_reopen_task(app, api, user):
 
     log.info('API CALL: Get task id by task title')
     task_id = api_get_project_task_id_by_name(token, project_task_url, project_id, task_title)
-    assert(task_id is not None)
+    assert (task_id is not None)
     log.info('API CALL: Task id returned successfully')
     app.back()
 
@@ -160,7 +146,7 @@ def test_reopen_task(app, api, user):
     log.info('API CALL completed')
 
     log.info('Perform data sync in Mobile')
-    TodoistGeneric.sync_data(app)
+    sync_data(app)
     log.info('Data sync completed')
 
     log.info('Navigate back to project')
@@ -173,7 +159,5 @@ def test_reopen_task(app, api, user):
     # Teardown
 
     log.info('Remove and clean up project')
-    api_delete_project(token, project_url, project_id)
-    response = api_get_project_details(token, project_url, project_id)
-    assert (response.status_code == 404)
+    api_remove_project_by_project_id(token, project_url, project_id)
     log.info('Project removed successfully')
