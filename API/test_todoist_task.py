@@ -4,7 +4,8 @@ import time
 import uuid
 import pytest
 
-from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details
+from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
+    api_remove_project_by_project_id
 
 
 def api_get_project_tasks(token, project_task_url, project_id):
@@ -79,10 +80,10 @@ def test_create_and_get_tasks_details(api_test_config):
     project_url = api_test_config['api_project_url']
 
     project_id = api_create_new_project(token, project_url, project_name)
-    assert (project_id > 0)
+    assert (project_id is not None)
 
     task_id = api_create_project_task(token, project_task_url, project_id, task_title, task_due)
-    assert (task_id > 0)
+    assert (task_id is not None)
     assert (api_get_project_task_by_name(token, project_task_url, project_id, task_title) == task_title)
 
     api_close_task(token, project_task_url, task_id)
@@ -90,6 +91,5 @@ def test_create_and_get_tasks_details(api_test_config):
     assert (api_get_project_task_by_name(token, project_task_url, project_id, task_title) == task_title)
 
     time.sleep(2)
-    api_delete_project(token, project_url, project_id)
-    response = api_get_project_details(token, project_url, project_id)
-    assert (response.status_code == 404)
+
+    api_remove_project_by_project_id(token, project_url, project_id)

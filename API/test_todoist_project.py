@@ -47,11 +47,29 @@ def api_get_project_id_by_project_name(token, project_url, project_name):
             return project['id']
 
 
-def api_remove_all_projects(token, project_url):
+def api_get_project_ids_by_project_name(token, project_url, project_name):
     projects = api_get_all_projects(token, project_url)
+    projects_list = []
     for project in projects:
-        project_id = project['id']
+        if project['name'] == project_name:
+            projects_list.append(project['id'])
+    return projects_list
+
+
+def api_remove_projects_by_project_name(token, project_url, project_name):
+    project_ids = api_get_project_ids_by_project_name(token, project_url, project_name)
+    for project_id in project_ids:
         api_delete_project(token, project_url, project_id)
+        # Verify if project deleted
+        response = api_get_project_details(token, project_url, project_id)
+        assert (response.status_code == 404)
+
+
+def api_remove_project_by_project_id(token, project_url, project_id):
+    api_delete_project(token, project_url, project_id)
+    # Verify if project deleted
+    response = api_get_project_details(token, project_url, project_id)
+    assert (response.status_code == 404)
 
 
 @pytest.mark.P1
@@ -65,15 +83,18 @@ def test_create_and_delete_project(api_test_config):
     assert (project_id > 0)
     time.sleep(10)
 
-    api_delete_project(token, project_url, project_id)
-    response = api_get_project_details(token, project_url, project_id)
-    assert (response.status_code == 404)
+    api_remove_project_by_project_id(token, project_url, project_id)
 
 
 @pytest.mark.P1
 @pytest.mark.Project
 @pytest.mark.API
-def test_remove_all_projects(api_test_config):
+def test_remove_all_projects_by_project_name(api_test_config):
+    project_name = "sample1"
     token = api_test_config['api_token']
     project_url = api_test_config['api_project_url']
-    api_remove_all_projects(token, project_url)
+    x = range(2)
+    for n in x:
+        project_id = api_create_new_project(token, project_url, project_name)
+        assert (project_id is not None)
+    api_remove_projects_by_project_name(token, project_url, project_name)
