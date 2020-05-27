@@ -146,7 +146,7 @@ pipenv run python -m pytest c:\setel\mobile -m "Project"
 
 To test all mobile related test through passing token value in command prompt
 ```
-pipenv run python -m pytest c:\setel\mobile --apitoken="XXXXXXXX"
+pipenv run python -m pytest c:\setel\mobile --token="XXXXXXXX"
 ```
 
 To test Task and Project related test in parallel on different Appium server and emulator
