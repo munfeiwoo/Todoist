@@ -34,6 +34,26 @@ def api_get_project_details(token, project_url, project_id):
     return response
 
 
+def api_get_all_projects(token, project_url):
+    response = requests.get(project_url,
+                            headers={"Authorization": "Bearer {}".format(token)}).json()
+    return response
+
+
+def api_get_project_id_by_project_name(token, project_url, project_name):
+    projects = api_get_all_projects(token, project_url)
+    for project in projects:
+        if project['name'] == project_name:
+            return project['id']
+
+
+def api_remove_all_projects(token, project_url):
+    projects = api_get_all_projects(token, project_url)
+    for project in projects:
+        project_id = project['id']
+        api_delete_project(token, project_url, project_id)
+
+
 @pytest.mark.P1
 @pytest.mark.Project
 @pytest.mark.API
@@ -48,3 +68,12 @@ def test_create_and_delete_project(api_test_config):
     api_delete_project(token, project_url, project_id)
     response = api_get_project_details(token, project_url, project_id)
     assert (response.status_code == 404)
+
+
+@pytest.mark.P1
+@pytest.mark.Project
+@pytest.mark.API
+def test_remove_all_projects(api_test_config):
+    token = api_test_config['token']
+    project_url = api_test_config['project_url']
+    api_remove_all_projects(token, project_url)
