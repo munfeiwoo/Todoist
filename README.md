@@ -60,7 +60,7 @@ We could have more discussions on the automated test, automation strategy and en
 # Cloning the project and install required dependencies
 Please execute the following command to clone the project in your working directory
 ```buildoutcfg
-    git clone https://github.com/munfeiwoo/setel.git
+    git clone https://github.com/munfeiwoo/Todoist.git
 ```
 Execute the following command in the setel project folder to install all dependencies to run the test 
 ```buildoutcfg
