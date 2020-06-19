@@ -38,7 +38,7 @@ There are markers for each test to add flexibility to execute certain test cases
 Please be noted the following folders are just to demonstrate potential structure for adding page objects and test automation for web in the future. 
 
 ```
-   setel
+   Todoist
    |---pages
    |   |-----web
    |---web      
