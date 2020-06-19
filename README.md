@@ -1,6 +1,6 @@
-# Setel test-automation-challenge
+# Todoist test-automation-challenge
 
-This is part of test automation challenge posted by Setel to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and Python 3.8. (Please refer to the next section on the setup of my machine)
+This is part of test automation challenge to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and Python 3.8. (Please refer to the next section on the setup of my machine)
 
 
 # Machine setup
