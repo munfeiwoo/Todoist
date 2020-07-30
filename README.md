@@ -1,6 +1,6 @@
 # Todoist test-automation-challenge
 
-This is part of test automation challenge to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and Python 3.8. (Please refer to the next section on the setup of my machine)
+This is part of test automation challenge to perform test automation on API and mobile app. I am using pytest framework and Appium to perform API, web, and mobile application testing on Todoist mobile app. I was working on Windows 10 installed with Appium 1.17.1 and Python 3.8. (Please refer to the next section on the setup of my machine)
 
 
 # Machine setup
@@ -35,22 +35,7 @@ Please be noted that there are assertions made in the API calls to ensure any un
 
 There are markers for each test to add flexibility to execute certain test cases
 
-Please be noted the following folders are just to demonstrate potential structure for adding page objects and test automation for web in the future. 
-
-```
-   Todoist
-   |---pages
-   |   |-----web
-   |---web      
-```
-
-The current test structure is just for the purpose of test automation demonstration covering scenarios mentioned in the assignment and there could be further enhancements to framework.
-
-    1. Test “Create Project”
-    2. Test “Create Task via mobile phone”
-    3. Test “Reopen Task”
-
-It is a best practice to ensure each automated test case is independent and self-contained. As such, I have rework the steps provided in scenario 2 and 3 not to depends on project and task created in earlier test scenario but still achieving the same test objective. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a **Setup**, **Body** and **Teardown** section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
+It is a best practice to ensure each automated test case is independent and self-contained. Each test was scripted as an independent automated test to ensure the test could be executed as a standalone test. You will also noticed that there is a **Setup**, **Body** and **Teardown** section in each automated test. All prerequisites will be run in the Setup section and all data created in a test will be deleted during teardown to ensure the same test could be repeated in a clean state during the next execution cycle.
 
 The test framework will accept test configuration values in command prompt. Together with markers and self-contained automated test, we could run automated tests in parallel in Jenkins (or similar tool) to improve on test execution time to cater for more automated test in the future. (Please refer to the Configuration section and also examples on how to execute test in parallel)
 
