@@ -117,17 +117,17 @@ pipenv run python -m pytest .\API
 
 To test all project releated API
 ```
-pipenv run python -m pytest .\API -m "Project"
+pipenv run python -m pytest .\API -m "Project" --junitxml .\results\web_results.xml
 ```
 
 To test all task related API
 ```
-pipenv run python -m pytest .\API -m "Task"
+pipenv run python -m pytest .\API -m "Task" --junitxml .\results\web_results.xml
 ```
 
 To test all API passing token value in command prompt
 ```
-pipenv run python -m pytest .\API --apitoken="XXXXXXXX"
+pipenv run python -m pytest .\API --apitoken="XXXXXXXX" --junitxml .\results\web_results.xml
 ```
 
 ##### **Mobile APP**
@@ -135,31 +135,31 @@ pipenv run python -m pytest .\API --apitoken="XXXXXXXX"
 
 To execute all mobile app test
 ```
-pipenv run python -m pytest .\mobile
+pipenv run python -m pytest .\mobile --junitxml .\results\web_results.xml
 ```
 
 To execute task related mobile app test
 ```
-pipenv run python -m pytest .\mobile -m "Task"
+pipenv run python -m pytest .\mobile -m "Task" --junitxml .\results\web_results.xml
 ```
 
 To execute project related mobile app test
 ```
-pipenv run python -m pytest .\mobile -m "Project"
+pipenv run python -m pytest .\mobile -m "Project" --junitxml .\results\web_results.xml
 ```
 
 To test all mobile related test through passing token value in command prompt
 ```
-pipenv run python -m pytest .\mobile --token="XXXXXXXX"
+pipenv run python -m pytest .\mobile --token="XXXXXXXX" --junitxml .\results\web_results.xml
 ```
 
 To test Task and Project related test in parallel on different Appium server and emulator
 ```
     Please run on different terminal
 
-    pipenv run python -m pytest .\mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --udid="emulator-5554"
+    pipenv run python -m pytest .\mobile -m "Task" --appiumserver="http://localhost:4724/wd/hub" --udid="emulator-5554" --junitxml .\results\web_results.xml
 
-    pipenv run python -m pytest .\mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --udid="emulator-5556"    
+    pipenv run python -m pytest .\mobile -m "Project" --appiumserver="http://localhost:4723/wd/hub" --udid="emulator-5556" --junitxml .\results\web_results.xml     
 ```
 
 # Proof of Execution
