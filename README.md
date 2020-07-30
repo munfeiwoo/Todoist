@@ -117,17 +117,17 @@ pipenv run python -m pytest .\API
 
 To test all project releated API
 ```
-pipenv run python -m pytest .\API -m "Project" --junitxml .\results\web_results.xml
+pipenv run python -m pytest .\API -m "Project" --junitxml .\results\api_results.xml
 ```
 
 To test all task related API
 ```
-pipenv run python -m pytest .\API -m "Task" --junitxml .\results\web_results.xml
+pipenv run python -m pytest .\API -m "Task" --junitxml .\results\api_results.xml
 ```
 
 To test all API passing token value in command prompt
 ```
-pipenv run python -m pytest .\API --apitoken="XXXXXXXX" --junitxml .\results\web_results.xml
+pipenv run python -m pytest .\API --apitoken="XXXXXXXX" --junitxml .\results\api_results.xml
 ```
 
 ##### **Mobile APP**
