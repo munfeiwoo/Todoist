@@ -3,8 +3,10 @@
   "api_project_task_url": "https://api.todoist.com/rest/v1/tasks",
   "api_project_url": "https://api.todoist.com/rest/v1/projects",
   "email": "munfei.woo@gmail.com",
-  "password": "setel2020",
+  "password": "password!@#$",
   "appium_server": "http://localhost:4723/wd/hub",
   "platform_version": "7.1.1",
-  "platform_name": "Android"
+  "platform_name": "Android",
+  "browser": "chrome",
+  "wait_time": "10"
 }

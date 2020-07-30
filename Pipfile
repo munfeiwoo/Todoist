@@ -8,6 +8,7 @@ requests = "*"
 appium-python-client = "*"
 pytest = "*"
 selenium = "*"
+elasticsearch = "*"
 
 [requires]
 python_version = "3.8"

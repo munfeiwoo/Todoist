@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="158500e2-0c14-4859-bdd1-96c6ab5636e3" name="Default Changelist" comment="" />
+    <list default="true" id="158500e2-0c14-4859-bdd1-96c6ab5636e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/elasticsearch/test_schema.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/web/todoist_leftNav.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/web/todoist_login.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/web/todoist_project.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/web/todoist_settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/test_todoist_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/web/todoist_future_web_object.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/fileaccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/fileaccess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/todoist_future_web_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/test_todoist_project.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cNd2yD6GIa259kz9dQcu7cuZsX" />
   <component name="ProjectViewState">
@@ -15,7 +59,44 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/web" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MunFei\TestProject\Todoist\data\web" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MunFei\TestProject\Todoist\pages\web" />
+      <recent name="C:\Users\MunFei\TestProject\Todoist\web" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test_todoist_project" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="setel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web/test_todoist_project.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_todoist_project" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -29,5 +110,26 @@
       <updated>1590372781397</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="251" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596091068189">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="251" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1024.728@0.0.1024.728" timestamp="1596091068189" />
+    <state x="221" y="0" key="#test_todoist_project" timestamp="1596013526420">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="221" y="0" key="#test_todoist_project/0.0.1024.728@0.0.1024.728" timestamp="1596013526420" />
   </component>
 </project>

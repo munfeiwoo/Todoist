@@ -1,1 +1,0 @@
-# this just for demonstration of possible structure for web test automation
