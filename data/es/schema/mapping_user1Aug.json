@@ -1,0 +1,20 @@
+{
+  "users" : {
+    "mappings" : {
+      "properties" : {
+        "email" : {
+          "type" : "text"
+        },
+        "first_name" : {
+          "type" : "text"
+        },
+        "last_name" : {
+          "type" : "text"
+        },
+        "user_name" : {
+          "type" : "text"
+        }
+      }
+    }
+  }
+}
