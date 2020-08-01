@@ -86,6 +86,6 @@ def test_check_if_there_is_extra_index(es):
                 extra_index_list.append(actual_index)
 
     print('Extra Index')
-    print('============')
+    print('=============')
     print(extra_index_list)
     assert len(extra_index_list) == 0
