@@ -85,7 +85,6 @@ def test_check_if_there_is_extra_index(es):
             if actual_index not in expected_known_system_index:
                 extra_index_list.append(actual_index)
 
-
     print('Extra Index')
     print('============')
     print(extra_index_list)
