@@ -1,3 +1,4 @@
 index,action,datafile
 users,add,.\data\es\delta\users_initial_31July2020.csv
 users,add,.\data\es\delta\users_additional_1Aug2020.csv
+users,delete,.\data\es\delta\users_deleted_1Aug2020.csv

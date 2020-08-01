@@ -19,10 +19,10 @@ def get_execution_data():
 
 @pytest.mark.P1
 @pytest.mark.Index
-@pytest.mark.Settings
+@pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data())
-def test_missing_user(es, data):
+def test_checking_of_missing_user(es, data):
     user_count = 0
     hit_count = 0
     if data['index'] == 'users':
@@ -44,3 +44,32 @@ def test_missing_user(es, data):
                 for hit in response:
                     hit_count += 1
     assert user_count == hit_count
+
+
+@pytest.mark.P2
+@pytest.mark.Index
+@pytest.mark.Users
+@pytest.mark.parametrize(
+    'data', get_execution_data())
+def test_checking_of_deleted_user(es, data):
+    user_count = 0
+    hit_count = 0
+    if data['index'] == 'users':
+        if data['action'] == 'delete':
+            test_data = load_csv_to_dict(data['datafile'])
+            for user in test_data:
+                user_count += 1
+                q = Q('bool',
+                      must=[Q('match', email=user['email']),
+                            Q('match', user_name=user['user_name']),
+                            Q('match', first_name=user['first_name']),
+                            Q('match', last_name=user['last_name'])
+                            ]
+                      )
+                s = Search(using=es, index='users')
+                s = s.query(q)
+                response = s.execute()
+                print(response)
+                for hit in response:
+                    hit_count += 1
+        assert hit_count == 0
