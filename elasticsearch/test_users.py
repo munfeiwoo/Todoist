@@ -19,19 +19,19 @@ def get_execution_data():
 
 
 def query_construct(fieldnames, data):
-    must = []
+    match = []
     for field in fieldnames:
         if field == "email":
-            must.append(Q('match', email=data['email']))
+            match.append(Q('match', email=data['email']))
         if field == "user_name":
-            must.append(Q('match', user_name=data['user_name']))
+            match.append(Q('match', user_name=data['user_name']))
         if field == "first_name":
-            must.append(Q('match', first_name=data['first_name']))
+            match.append(Q('match', first_name=data['first_name']))
         if field == "last_name":
-            must.append(Q('match', last_name=data['last_name']))
+            match.append(Q('match', last_name=data['last_name']))
         if field == "country":
-            must.append(Q('match', country=data['country']))
-    return must
+            match.append(Q('match', country=data['country']))
+    return match
 
 
 @pytest.mark.P1
@@ -46,7 +46,6 @@ def query_construct(fieldnames, data):
 def test_checking_of_missing_user(es, data):
     user_count = 0
     hit_count = 0
-    q = None
     if data['index'] == 'users':
         if data['action'] == 'add':
             test_data = load_csv_to_dict(data['datafile'])
