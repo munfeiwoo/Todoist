@@ -17,7 +17,7 @@ def api_create_new_project(token, project_url, project_name):
             "X-Request-Id": str(uuid.uuid4()),
             "Authorization": "Bearer {}".format(token)
         })
-    assert response.status_code == 200,  'Response status should be 200'
+    assert response.status_code == 200, 'Response status should be 200'
     project = response.json()
     assert (project['name'] == project_name)
     return project['id']
