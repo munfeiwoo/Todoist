@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e2f9362f546ffe8ed54563071c91d3f091a45ff4b09cb51184c9199a689d5197"
+            "sha256": "5416c8e0da929d89dae8ffe6b1e23ce28d0beeb78c283d06360c5679486aaf59"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,21 @@
         ]
     },
     "default": {
+        "allure-pytest": {
+            "hashes": [
+                "sha256:27bc4ecc910146f8d01a8eadba1ec93d38e28ca972f46d3ca28760b929373682",
+                "sha256:9c3872395ba9e21b7412f7059366b1cfb4e42c2bee7988d60f242e99c54425fb"
+            ],
+            "index": "pypi",
+            "version": "==2.8.17"
+        },
+        "allure-python-commons": {
+            "hashes": [
+                "sha256:8442b119e0122bb338bd3e30fae7db6461317dc6e55d04c25675f0648df9b8af",
+                "sha256:d0f10eb0ce77f2c21e7f812a62a36f6d98448d446dc4b30469060003a13b0115"
+            ],
+            "version": "==2.8.17"
+        },
         "appium-python-client": {
             "hashes": [
                 "sha256:44e2cf8040dc9d52ad2947046f221eddfbf4055b8c99615e3f1808b6aeb6a8ec"

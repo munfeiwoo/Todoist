@@ -3,6 +3,7 @@ import requests
 import time
 import uuid
 import pytest
+import allure
 
 from api.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
     api_remove_project_by_project_id

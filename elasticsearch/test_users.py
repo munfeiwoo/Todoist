@@ -24,9 +24,9 @@ def get_execution_data():
 @pytest.mark.parametrize(
     'data', get_execution_data())
 @allure.epic("ElasticSearch - Index")
-@allure.feature("Feature 001")
-@allure.story("Story 001")
-@allure.testcase("Test Case 001")
+@allure.feature("Feature - User index")
+@allure.story("Story - Check user data")
+@allure.testcase("Test Case  - Check missing users")
 def test_checking_of_missing_user(es, data):
     user_count = 0
     hit_count = 0
@@ -57,9 +57,9 @@ def test_checking_of_missing_user(es, data):
 @pytest.mark.parametrize(
     'data', get_execution_data())
 @allure.epic("ElasticSearch - Index")
-@allure.feature("Feature 002")
-@allure.story("Story 002")
-@allure.testcase("Test Case 002")
+@allure.feature("Feature - User index")
+@allure.story("Story - Check user data")
+@allure.testcase("Test Case  - Check deleted users")
 def test_checking_of_deleted_user(es, data):
     user_count = 0
     hit_count = 0

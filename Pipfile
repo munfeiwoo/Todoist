@@ -10,6 +10,7 @@ pytest = "*"
 selenium = "*"
 elasticsearch = "*"
 elasticsearch-dsl = "*"
+allure-pytest = "*"
 
 [requires]
 python_version = "3.8"

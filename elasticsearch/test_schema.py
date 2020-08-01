@@ -3,6 +3,7 @@ import os
 import json
 import pytest
 import logging
+import allure
 
 from util.es import es_connect
 from util.fileaccess import load_csv_to_dict, load_json_file
@@ -28,6 +29,10 @@ def get_known_system_index_data():
 @pytest.mark.Settings
 @pytest.mark.parametrize(
     'data', get_index_data())
+@allure.epic("ElasticSearch - Index")
+@allure.feature("Feature - Index setting")
+@allure.story("Story - Check Index setting")
+@allure.testcase("Test Case  - Check index setting")
 def test_index_settings(es, data):
     settings = es.indices.get_settings(data['index'])
     actual_no_replicas = \
@@ -45,6 +50,10 @@ def test_index_settings(es, data):
 @pytest.mark.Mappings
 @pytest.mark.parametrize(
     'data', get_index_data())
+@allure.epic("ElasticSearch - Index")
+@allure.feature("Feature - Index mapping")
+@allure.story("Story - Check index mapping")
+@allure.testcase("Test Case  - Check index mapping")
 def test_index_mappings(es, data):
     actual_mapping = es.indices.get_mapping(data['index'])
     expected_mapping = load_json_file(data['mapping'])
@@ -53,6 +62,10 @@ def test_index_mappings(es, data):
 
 @pytest.mark.P1
 @pytest.mark.Index
+@allure.epic("ElasticSearch - Index")
+@allure.feature("Feature - Index core")
+@allure.story("Story - Check index")
+@allure.testcase("Test Case  - Check if there is extra Index")
 def test_check_if_there_is_extra_index(es):
     all_indexes = es.indices.get_alias("*").keys()
     expected_data = get_index_data()
