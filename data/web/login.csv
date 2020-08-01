@@ -1,0 +1,5 @@
+email,password,expected
+munfei.woo@gmail.com,password!@#$,successful
+munfei.woo@gmail.com,password,failed
+munfei.woo1@gmail.com,password!@#$,failed
+munfei.woo@gmail.com,password!@#$,successful
