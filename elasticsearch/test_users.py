@@ -18,6 +18,22 @@ def get_execution_data():
     return test_execution_data
 
 
+def query_construct(fieldnames, data):
+    must = []
+    for field in fieldnames:
+        if field == "email":
+            must.append(Q('match', email=data['email']))
+        if field == "user_name":
+            must.append(Q('match', user_name=data['user_name']))
+        if field == "first_name":
+            must.append(Q('match', first_name=data['first_name']))
+        if field == "last_name":
+            must.append(Q('match', last_name=data['last_name']))
+        if field == "country":
+            must.append(Q('match', country=data['country']))
+    return must
+
+
 @pytest.mark.P1
 @pytest.mark.Index
 @pytest.mark.Users
@@ -30,18 +46,14 @@ def get_execution_data():
 def test_checking_of_missing_user(es, data):
     user_count = 0
     hit_count = 0
+    q = None
     if data['index'] == 'users':
         if data['action'] == 'add':
             test_data = load_csv_to_dict(data['datafile'])
             for user in test_data:
                 user_count += 1
-                q = Q('bool',
-                      must=[Q('match', email=user['email']),
-                            Q('match', user_name=user['user_name']),
-                            Q('match', first_name=user['first_name']),
-                            Q('match', last_name=user['last_name'])
-                            ]
-                      )
+                query = query_construct(test_data.fieldnames, user)
+                q = Q('bool', must=query)
                 s = Search(using=es, index='users')
                 s = s.query(q)
                 response = s.execute()
@@ -68,13 +80,8 @@ def test_checking_of_deleted_user(es, data):
             test_data = load_csv_to_dict(data['datafile'])
             for user in test_data:
                 user_count += 1
-                q = Q('bool',
-                      must=[Q('match', email=user['email']),
-                            Q('match', user_name=user['user_name']),
-                            Q('match', first_name=user['first_name']),
-                            Q('match', last_name=user['last_name'])
-                            ]
-                      )
+                query = query_construct(test_data.fieldnames, user)
+                q = Q('bool', must=query)
                 s = Search(using=es, index='users')
                 s = s.query(q)
                 response = s.execute()
