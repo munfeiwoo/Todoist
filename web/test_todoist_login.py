@@ -2,7 +2,7 @@ import pytest
 import time
 import logging
 
-from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
+from api.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
     api_get_project_id_by_project_name, api_remove_projects_by_project_name, api_remove_project_by_project_id
 
 from pages.web.todoist_login import TodoistLogin

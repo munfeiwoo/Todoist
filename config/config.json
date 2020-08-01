@@ -8,5 +8,9 @@
   "platform_version": "7.1.1",
   "platform_name": "Android",
   "browser": "chrome",
-  "wait_time": "10"
+  "wait_time": "10",
+  "es_server": "localhost",
+  "es_port": "9200",
+  "es_username": "elastic",
+  "es_password": "password123"
 }

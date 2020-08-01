@@ -1,0 +1,23 @@
+{
+  "task" : {
+    "mappings" : {
+      "properties" : {
+        "end_date" : {
+          "type" : "date"
+        },
+        "start_date" : {
+          "type" : "date"
+        },
+        "status" : {
+          "type" : "text"
+        },
+        "task_name" : {
+          "type" : "text"
+        },
+        "user_id" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

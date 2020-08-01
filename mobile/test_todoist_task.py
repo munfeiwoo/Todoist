@@ -2,9 +2,9 @@ import pytest
 import time
 import logging
 
-from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
+from api.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
     api_get_project_id_by_project_name, api_remove_projects_by_project_name, api_remove_project_by_project_id
-from API.test_todoist_task import api_get_project_task_by_name, api_get_project_task_id_by_name, api_reopen_task
+from api.test_todoist_task import api_get_project_task_by_name, api_get_project_task_id_by_name, api_reopen_task
 from pages.mobile.todoist_login import TodoistLogin
 from pages.mobile.todoist_leftNav import TodoistLeftNav
 from pages.mobile.todoist_project import TodoistProject
@@ -30,14 +30,14 @@ def test_task_creation(app, api, user):
     email = user['email']
     password = user['password']
 
-    log.info('API CALL: Clean up project data')
+    log.info('api CALL: Clean up project data')
     api_remove_projects_by_project_name(token, project_url, project_name)
     log.info('Project removed successfully during setup')
 
-    log.info('API CALL: Create project using API')
+    log.info('api CALL: Create project using api')
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
-    log.info("API CALL: Project created successfully")
+    log.info("api CALL: Project created successfully")
 
     # Body
     log.info('Perform login')
@@ -63,10 +63,10 @@ def test_task_creation(app, api, user):
     log.info('Task created for the project')
     time.sleep(5)
 
-    log.info('API CALL: Verify task created using API')
+    log.info('api CALL: Verify task created using api')
     assert api_get_project_task_by_name(token, project_task_url, project_id, task_title) is not None, \
         'Task Title should not be None'
-    log.info('API CALL: Task exist from API verification')
+    log.info('api CALL: Task exist from api verification')
 
     # Teardown
     log.info('Remove and clean up project')
@@ -90,14 +90,14 @@ def test_reopen_task(app, api, user):
     email = user['email']
     password = user['password']
 
-    log.info('API CALL: Clean up project data')
+    log.info('api CALL: Clean up project data')
     api_remove_projects_by_project_name(token, project_url, project_name)
     log.info('Project removed successfully during setup')
 
-    log.info('API CALL: Create project using API')
+    log.info('api CALL: Create project using api')
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
-    log.info('API CALL: Project created successfully')
+    log.info('api CALL: Project created successfully')
 
     # Body
     log.info('Perform login')
@@ -123,10 +123,10 @@ def test_reopen_task(app, api, user):
     time.sleep(5)
     log.info('Task created to project ({})'.format(project_name))
 
-    log.info('API CALL: Get task id by task title')
+    log.info('api CALL: Get task id by task title')
     task_id = api_get_project_task_id_by_name(token, project_task_url, project_id, task_title)
     assert task_id is not None, 'Task id should not be None'
-    log.info('API CALL: Task id returned successfully')
+    log.info('api CALL: Task id returned successfully')
     app.back()
 
     log.info('Navigate again to the project')
@@ -142,9 +142,9 @@ def test_reopen_task(app, api, user):
     time.sleep(5)
     log.info('Task marked to complete successfully')
 
-    log.info('API CALL: Reopen Task')
+    log.info('api CALL: Reopen Task')
     api_reopen_task(token, project_task_url, task_id)
-    log.info('API CALL completed')
+    log.info('api CALL completed')
 
     log.info('Perform data sync in Mobile')
     sync_data(app)

@@ -1,0 +1,15 @@
+{
+  "project" : {
+    "mappings" : {
+      "properties" : {
+        "project_name" : {
+          "type" : "text"
+        },
+        "user_id" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}
+

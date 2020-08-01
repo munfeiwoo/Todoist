@@ -2,7 +2,7 @@ import pytest
 import time
 import logging
 
-from API.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
+from api.test_todoist_project import api_create_new_project, api_delete_project, api_get_project_details, \
     api_get_project_id_by_project_name, api_remove_projects_by_project_name, api_remove_project_by_project_id
 
 from pages.web.todoist_login import TodoistLogin
@@ -26,14 +26,14 @@ def test_validate_project(browser, api, user):
     email = user['email']
     password = user['password']
 
-    log.info('API CALL: Clean up project data')
+    log.info('api CALL: Clean up project data')
     api_remove_projects_by_project_name(token, project_url, project_name)
     log.info('Project removed successfully during setup')
 
-    log.info('API CALL: Create project using API')
+    log.info('api CALL: Create project using api')
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
-    log.info('API CALL: Project created successfully')
+    log.info('api CALL: Project created successfully')
 
     # project name used for each automated test must be unique to ensure each test is standalone
 
