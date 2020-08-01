@@ -3,6 +3,7 @@ import os
 import json
 import pytest
 import logging
+import allure
 
 from util.es import es_connect, es_search
 from util.fileaccess import load_csv_to_dict, load_json_file
@@ -22,6 +23,10 @@ def get_execution_data():
 @pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data())
+@allure.epic("ElasticSearch - Index")
+@allure.feature("Feature 001")
+@allure.story("Story 001")
+@allure.testcase("Test Case 001")
 def test_checking_of_missing_user(es, data):
     user_count = 0
     hit_count = 0
@@ -51,6 +56,10 @@ def test_checking_of_missing_user(es, data):
 @pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data())
+@allure.epic("ElasticSearch - Index")
+@allure.feature("Feature 002")
+@allure.story("Story 002")
+@allure.testcase("Test Case 002")
 def test_checking_of_deleted_user(es, data):
     user_count = 0
     hit_count = 0
