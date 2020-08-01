@@ -53,7 +53,7 @@ def test_index_mappings(es, data):
 
 @pytest.mark.P1
 @pytest.mark.Index
-def test_extra_index(es):
+def test_check_if_there_is_extra_index(es):
     all_indexes = es.indices.get_alias("*").keys()
     expected_data = get_index_data()
     known_system_index = get_known_system_index_data()
