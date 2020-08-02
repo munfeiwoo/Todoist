@@ -6,12 +6,8 @@ def es_connect(hostname, port, username, password):
     es = Elasticsearch(hosts=[{'host': hostname, 'port': port}],
                        http_auth=(username, password))
     if es.ping():
-        print('Connected')
+        print('ES - Connected')
     else:
-        print('Failed to connect!')
+        print('ES - Failed to connect!')
     assert es.ping() is True
     return es
-
-
-def es_search(es):
-    return Search(using=es)
