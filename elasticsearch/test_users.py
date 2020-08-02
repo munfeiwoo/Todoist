@@ -10,11 +10,17 @@ from util.fileaccess import load_csv_to_dict, load_json_file
 from elasticsearch_dsl import Search
 from elasticsearch_dsl import Q
 
-DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\data_verification_execution.csv'
+ADDED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\added_users_data_verification_execution.csv'
+DELETED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\deleted_users_data_verification_execution.csv'
 
 
-def get_execution_data():
-    test_execution_data = load_csv_to_dict(DATA_VERIFICATION_EXECUTION_PATH)
+def get_execution_data_for_added_users():
+    test_execution_data = load_csv_to_dict(ADDED_USERS_DATA_VERIFICATION_EXECUTION_PATH)
+    return test_execution_data
+
+
+def get_execution_data_for_deleted_users():
+    test_execution_data = load_csv_to_dict(DELETED_USERS_DATA_VERIFICATION_EXECUTION_PATH)
     return test_execution_data
 
 
@@ -34,12 +40,11 @@ def query_construct(fieldnames, data):
     return match
 
 
-
 @pytest.mark.P1
 @pytest.mark.Index
 @pytest.mark.Users
 @pytest.mark.parametrize(
-    'data', get_execution_data())
+    'data', get_execution_data_for_added_users())
 @allure.epic("ElasticSearch - Index")
 @allure.feature("Feature - User index")
 @allure.story("Story - Check user data")
@@ -61,14 +66,14 @@ def test_checking_of_missing_user(es, data):
                 for hit in response:
                     hit_count += 1
     assert user_count == hit_count, \
-        "expected {} users but ES returning {} users".format(user_count,hit_count)
+        "expected {} users but ES returning {} users".format(user_count, hit_count)
 
 
 @pytest.mark.P2
 @pytest.mark.Index
 @pytest.mark.Users
 @pytest.mark.parametrize(
-    'data', get_execution_data())
+    'data', get_execution_data_for_deleted_users())
 @allure.epic("ElasticSearch - Index")
 @allure.feature("Feature - User index")
 @allure.story("Story - Check user data")
@@ -91,4 +96,3 @@ def test_checking_of_deleted_user(es, data):
                     hit_count += 1
         assert hit_count == 0, \
             "expected 0 user but ES returning {} users".format(hit_count)
-
