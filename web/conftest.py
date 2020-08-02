@@ -16,6 +16,7 @@ DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome', 'firefox', 'Ie']
 
 
+# Getting values from command line
 def pytest_addoption(parser):
     parser.addoption("--token", action="store", default="None")
     parser.addoption("--projecturl", action="store", default="None")
@@ -25,6 +26,7 @@ def pytest_addoption(parser):
     parser.addoption("--testbrowser", action="store", default="None")
 
 
+# Setting values from command line to global variables
 def pytest_configure(config):
     global TOKEN
     global PROJECT_URL
@@ -41,6 +43,7 @@ def pytest_configure(config):
     TEST_BROWSER = config.getoption('testbrowser')
 
 
+# Load configuration from config file
 @pytest.fixture(scope='session')
 def configure():
     # Read the JSON config file and returns it as a parsed dict
@@ -48,6 +51,7 @@ def configure():
     return load_json_file(CONFIG_PATH)
 
 
+# Configure token
 @pytest.fixture(scope='session')
 def config_token(configure):
     if TOKEN != 'None':
@@ -58,6 +62,7 @@ def config_token(configure):
         return configure['api_token']
 
 
+# Configure project url
 @pytest.fixture(scope='session')
 def config_project_url(configure):
     if PROJECT_URL != 'None':
@@ -68,6 +73,7 @@ def config_project_url(configure):
         return configure['api_project_url']
 
 
+# Configure task url
 @pytest.fixture(scope='session')
 def config_project_task_url(configure):
     if PROJECT_TASK_URL != 'None':
@@ -78,6 +84,7 @@ def config_project_task_url(configure):
         return configure['api_project_task_url']
 
 
+# Configure email
 @pytest.fixture(scope='session')
 def config_email(configure):
     if EMAIL != 'None':
@@ -88,6 +95,7 @@ def config_email(configure):
         return configure['email']
 
 
+# Configure password
 @pytest.fixture(scope='session')
 def config_password(configure):
     if PASSWORD != 'None':
@@ -98,6 +106,7 @@ def config_password(configure):
         return configure['password']
 
 
+# Configure browser
 @pytest.fixture(scope='session')
 def config_browser(configure):
     # Validate and return the browser choice from the config data
@@ -115,12 +124,14 @@ def config_browser(configure):
         return configure['browser']
 
 
+# Configure waiting time
 @pytest.fixture(scope='session')
 def config_wait_time(configure):
     # Validate and return the wait time from the config data
     return configure['wait_time'] if 'wait_time' in configure else DEFAULT_WAIT_TIME
 
 
+# Configure user access
 @pytest.fixture
 def user(config_email, config_password, request):
     user_config = dict()
@@ -129,6 +140,7 @@ def user(config_email, config_password, request):
     return user_config
 
 
+# Configure api access
 @pytest.fixture
 def api(config_token, config_project_url, config_project_task_url, request):
     # Initialize WebDriver
@@ -140,6 +152,7 @@ def api(config_token, config_project_url, config_project_task_url, request):
     return test_config
 
 
+# Configure and return browser
 @pytest.fixture
 def browser(config_browser, config_wait_time, request):
     # Initialize WebDriver

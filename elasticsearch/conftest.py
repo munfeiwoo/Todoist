@@ -8,6 +8,7 @@ from util.es import es_connect
 CONFIG_PATH = 'config\\config.json'
 
 
+# Getting values from command line
 def pytest_addoption(parser):
     parser.addoption("--es_server", action="store", default="None")
     parser.addoption("--es_port", action="store", default="None")
@@ -15,6 +16,7 @@ def pytest_addoption(parser):
     parser.addoption("--es_password", action="store", default="None")
 
 
+# Setting values from command line to global variables
 def pytest_configure(config):
     global ES_SERVER
     global ES_PORT
@@ -27,12 +29,14 @@ def pytest_configure(config):
     ES_PASSWORD = config.getoption('es_password')
 
 
+# Load configuration from config file
 @pytest.fixture(scope='session')
 def configure():
     # Read the JSON config file and returns it as a parsed dict
     return load_json_file(CONFIG_PATH)
 
 
+# Configure Elasticsearch server name
 @pytest.fixture(scope='session')
 def config_es_server(configure):
     if ES_SERVER != 'None':
@@ -43,6 +47,7 @@ def config_es_server(configure):
         return configure['es_server']
 
 
+# Configure Elasticsearch server port
 @pytest.fixture(scope='session')
 def config_es_port(configure):
     if ES_PORT != 'None':
@@ -53,6 +58,7 @@ def config_es_port(configure):
         return configure['es_port']
 
 
+# Configure Elasticsearch server username
 @pytest.fixture(scope='session')
 def config_es_username(configure):
     if ES_USERNAME != 'None':
@@ -63,6 +69,7 @@ def config_es_username(configure):
         return configure['es_username']
 
 
+# Configure Elasticsearch server password
 @pytest.fixture(scope='session')
 def config_es_password(configure):
     if ES_PASSWORD != 'None':
@@ -73,6 +80,7 @@ def config_es_password(configure):
         return configure['es_password']
 
 
+# Configure and return Elasticsearch server connection
 @pytest.fixture
 def es(config_es_server, config_es_port, config_es_username, config_es_password, request):
     # Initialize WebDriver

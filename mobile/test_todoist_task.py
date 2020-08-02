@@ -26,21 +26,27 @@ def test_task_creation(app, api, user):
     email = user['email']
     password = user['password']
 
+    # Clear all project data using API
     api_remove_projects_by_project_name(token, project_url, project_name)
 
+    # Create a project
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
 
     # Body
+
+    # Login
     login = TodoistLogin(app)
     login.email_login(email, password)
     time.sleep(3)
 
+    # Navigate to the expected project
     left_nav = TodoistLeftNav(app)
     left_nav.get_main_menu()
     left_nav.select_project_option()
     left_nav.select_a_project_by_project_name(project_name)
 
+    # Create task for the project
     project_page = TodoistProject(app)
     project_page.select_add_task()
     project_page.add_task_title(task_title)
@@ -49,10 +55,12 @@ def test_task_creation(app, api, user):
     project_page.submit_task()
     time.sleep(5)
 
+    # Check if task being created for the project using API
     assert api_get_project_task_by_name(token, project_task_url, project_id, task_title) is not None, \
         'Task Title should not be None'
 
     # Teardown
+    # Remove project data
     api_remove_project_by_project_id(token, project_url, project_id)
 
 
@@ -71,21 +79,27 @@ def test_reopen_task(app, api, user):
     email = user['email']
     password = user['password']
 
+    # Clear all project data using API
     api_remove_projects_by_project_name(token, project_url, project_name)
 
+    # Create new project using API
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
 
     # Body
+
+    # Login
     login = TodoistLogin(app)
     login.email_login(email, password)
     time.sleep(3)
 
+    # Navigate to the expected project
     left_nav = TodoistLeftNav(app)
     left_nav.get_main_menu()
     left_nav.select_project_option()
     left_nav.select_a_project_by_project_name(project_name)
 
+    # Add task to the project
     project_page = TodoistProject(app)
     project_page.select_add_task()
     project_page.add_task_title(task_title)
@@ -94,6 +108,7 @@ def test_reopen_task(app, api, user):
     project_page.submit_task()
     time.sleep(5)
 
+    # Check if task is created using API
     task_id = api_get_project_task_id_by_name(token, project_task_url, project_id, task_title)
     assert task_id is not None, 'Task id should not be None'
     app.back()
@@ -104,18 +119,24 @@ def test_reopen_task(app, api, user):
     left_nav.select_a_project_by_project_name(project_name)
     time.sleep(5)
 
+    # Mark task as completed
     project_page.mark_completed_project_task_by_name(task_title)
     time.sleep(5)
 
+    # Reopen the task using API
     api_reopen_task(token, project_task_url, task_id)
 
+    # Sync app data
     sync_data(app)
 
     time.sleep(5)
     left_nav.select_a_project_by_project_name(project_name)
     time.sleep(5)
+
+    # Check if task is displaying again on the project page
     assert project_page.get_project_task_by_name(task_title) is not None, \
         'Should be able to find task "{}" in the project'.format(task_title)
 
     # Teardown
+    # Remove project data
     api_remove_project_by_project_id(token, project_url, project_id)

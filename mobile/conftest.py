@@ -17,6 +17,7 @@ EMAIL = ''
 PASSWORD = ''
 
 
+# Getting values from command line
 def pytest_addoption(parser):
     parser.addoption("--appiumserver", action="store", default="None")
     parser.addoption("--platformname", action="store", default="None")
@@ -29,6 +30,7 @@ def pytest_addoption(parser):
     parser.addoption("--password", action="store", default="None")
 
 
+# Setting values from command line to global variables
 def pytest_configure(config):
     global UDID
     global APPIUM_SERVER
@@ -50,13 +52,15 @@ def pytest_configure(config):
     PASSWORD = config.getoption('password')
     UDID = config.getoption('udid')
 
+
+# Load configuration from config file
 @pytest.fixture(scope='session')
 def configure():
     # Read the JSON config file and returns it as a parsed dict
-
     return load_json_file(CONFIG_PATH)
 
 
+# Configure platform name
 @pytest.fixture(scope='session')
 def config_platform_name(configure):
     # Validate and return the browser choice from the config data
@@ -69,9 +73,9 @@ def config_platform_name(configure):
         return configure['platform_name']
 
 
+# Configure appium server
 @pytest.fixture(scope='session')
 def config_appium_server(configure):
-
     if APPIUM_SERVER != 'None':
         return APPIUM_SERVER
     else:
@@ -80,9 +84,9 @@ def config_appium_server(configure):
         return configure['appium_server']
 
 
+# Configure platform version
 @pytest.fixture(scope='session')
 def config_platform_version(configure):
-
     if PLATFORM_VERSION != 'None':
         return PLATFORM_VERSION
     else:
@@ -91,9 +95,9 @@ def config_platform_version(configure):
         return configure['platform_version']
 
 
+# Configure api token
 @pytest.fixture(scope='session')
 def config_token(configure):
-
     if TOKEN != 'None':
         return TOKEN
     else:
@@ -102,9 +106,9 @@ def config_token(configure):
         return configure['api_token']
 
 
+# Configure project url
 @pytest.fixture(scope='session')
 def config_project_url(configure):
-
     if PROJECT_URL != 'None':
         return PROJECT_URL
     else:
@@ -113,9 +117,9 @@ def config_project_url(configure):
         return configure['api_project_url']
 
 
+# Configure task url
 @pytest.fixture(scope='session')
 def config_project_task_url(configure):
-
     if PROJECT_TASK_URL != 'None':
         return PROJECT_TASK_URL
     else:
@@ -124,9 +128,9 @@ def config_project_task_url(configure):
         return configure['api_project_task_url']
 
 
+# configure email
 @pytest.fixture(scope='session')
 def config_email(configure):
-
     if EMAIL != 'None':
         return EMAIL
     else:
@@ -135,9 +139,9 @@ def config_email(configure):
         return configure['email']
 
 
+# Configure password
 @pytest.fixture(scope='session')
 def config_password(configure):
-
     if PASSWORD != 'None':
         return PASSWORD
     else:
@@ -145,15 +149,17 @@ def config_password(configure):
             raise Exception('The config file does not contain "password"')
         return configure['password']
 
+
+# Configure user access
 @pytest.fixture
 def user(config_email, config_password, request):
-
     user_config = dict()
     user_config['email'] = config_email
     user_config['password'] = config_password
     return user_config
 
 
+# Configure api connection
 @pytest.fixture
 def api(config_token, config_project_url, config_project_task_url, request):
     # Initialize WebDriver
@@ -165,6 +171,7 @@ def api(config_token, config_project_url, config_project_task_url, request):
     return test_config
 
 
+# Configure and return mobile app connection
 @pytest.fixture
 def app(config_platform_name, config_appium_server, config_platform_version, request):
     # Initialize WebDriver

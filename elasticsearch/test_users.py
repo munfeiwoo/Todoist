@@ -14,16 +14,19 @@ ADDED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\execution\\added_
 DELETED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\execution\\deleted_users_data_verification.csv'
 
 
+# Loads and return execution data for expected added users
 def get_execution_data_for_added_users():
     test_execution_data = load_csv_to_dict(ADDED_USERS_DATA_VERIFICATION_EXECUTION_PATH)
     return test_execution_data
 
 
+# Loads and return execution data for expected deleted users
 def get_execution_data_for_deleted_users():
     test_execution_data = load_csv_to_dict(DELETED_USERS_DATA_VERIFICATION_EXECUTION_PATH)
     return test_execution_data
 
 
+# Dynamically construct match query for each fields and data provided
 def query_construct(fieldnames, data):
     match = []
     for field in fieldnames:
@@ -54,7 +57,10 @@ def test_checking_of_missing_user(es, data):
     hit_count = 0
     if data['index'] == 'users':
         if data['action'] == 'add':
+
+            # Loads user data
             test_data = load_csv_to_dict(data['datafile'])
+
             for user in test_data:
                 user_count += 1
                 query = query_construct(test_data.fieldnames, user)
@@ -65,6 +71,8 @@ def test_checking_of_missing_user(es, data):
                 print(response)
                 for hit in response:
                     hit_count += 1
+
+    # Check if the expected user count is equal to the actual user count
     assert user_count == hit_count, \
         'Expected {} users but ES returning {} users'.format(user_count, hit_count)
 
@@ -83,6 +91,8 @@ def test_checking_of_deleted_user(es, data):
     hit_count = 0
     if data['index'] == 'users':
         if data['action'] == 'delete':
+
+            # Loads user data
             test_data = load_csv_to_dict(data['datafile'])
             for user in test_data:
                 user_count += 1
@@ -94,5 +104,7 @@ def test_checking_of_deleted_user(es, data):
                 print(response)
                 for hit in response:
                     hit_count += 1
+
+        # Check if the expected user count is equal to the actual user count
         assert hit_count == 0, \
             'Expected 0 user but ES returning {} users'.format(hit_count)

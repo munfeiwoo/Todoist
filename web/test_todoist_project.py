@@ -10,11 +10,6 @@ from pages.web.todoist_login import TodoistLogin
 from pages.web.todoist_leftNav import TodoistLeftNav
 from pages.web.todoist_project import TodoistProject
 
-logging.basicConfig(filename="project_logFile.txt",
-                    filemode='a',
-                    format='%(asctime)s %(levelname)s-%(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S')
-
 
 @pytest.mark.P1
 @pytest.mark.Project
@@ -49,4 +44,6 @@ def test_validate_project(browser, api, user):
     left_nav.select_a_project_by_project_name(project_name)
 
     project_page = TodoistProject(browser)
+
+    # Check if the expected project title being displayed
     project_page.check_project_title_is_displayed(project_name)

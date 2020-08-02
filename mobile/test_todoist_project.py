@@ -22,24 +22,30 @@ def test_create_project(app, api, user):
     email = user['email']
     password = user['password']
 
+    # Clear all project data using API
     api_remove_projects_by_project_name(token, project_url, project_name)
 
+    # Create new project using API
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
 
     # Body
+    # Login
     login = TodoistLogin(app)
     login.email_login(email, password)
     time.sleep(5)
 
+    # Navigate to manage project option
     left_nav = TodoistLeftNav(app)
     left_nav.get_main_menu()
     left_nav.select_project_option()
     left_nav.select_manage_project_option()
     time.sleep(5)
 
+    # Check if project exist
     manage_project = TodoistManageProject(app)
     manage_project.check_project_exist_by_project_name(project_name)
 
     # Teardown
+    # Remove project data
     api_remove_project_by_project_id(token, project_url, project_id)
