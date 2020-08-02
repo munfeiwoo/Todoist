@@ -1,0 +1,2 @@
+index,action,datafile
+users,delete,.\data\es\delta\users_deleted_1Aug2020.csv
