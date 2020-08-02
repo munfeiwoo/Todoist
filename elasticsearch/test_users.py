@@ -10,8 +10,8 @@ from util.fileaccess import load_csv_to_dict, load_json_file
 from elasticsearch_dsl import Search
 from elasticsearch_dsl import Q
 
-ADDED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\added_users_data_verification_execution.csv'
-DELETED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\deleted_users_data_verification_execution.csv'
+ADDED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\execution\\added_users_data_verification.csv'
+DELETED_USERS_DATA_VERIFICATION_EXECUTION_PATH = 'elasticsearch\\execution\\deleted_users_data_verification.csv'
 
 
 def get_execution_data_for_added_users():
