@@ -10,8 +10,10 @@ from pages.web.todoist_login import TodoistLogin
 from pages.web.todoist_leftNav import TodoistLeftNav
 from pages.web.todoist_project import TodoistProject
 
-logging.basicConfig(level=logging.DEBUG)
-log = logging.getLogger()
+logging.basicConfig(filename="project_logFile.txt",
+                    filemode='a',
+                    format='%(asctime)s %(levelname)s-%(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 
 @pytest.mark.P1
@@ -22,8 +24,7 @@ log = logging.getLogger()
 @allure.story('Story - User project')
 @allure.testcase('Test Case  - User project displayed accordingly')
 def test_validate_project(browser, api, user):
-    # Setup
-    log.info('Setting up test environment for test_create_project')
+
     # project name used for each automated test must be unique to ensure each test is standalone
     project_name = 'test_create_project'
     token = api['api_token']
@@ -31,14 +32,10 @@ def test_validate_project(browser, api, user):
     email = user['email']
     password = user['password']
 
-    log.info('api CALL: Clean up project data')
     api_remove_projects_by_project_name(token, project_url, project_name)
-    log.info('Project removed successfully during setup')
 
-    log.info('api CALL: Create project using api')
     project_id = api_create_new_project(token, project_url, project_name)
     assert project_id is not None, 'Project id should not be None'
-    log.info('api CALL: Project created successfully')
 
     # project name used for each automated test must be unique to ensure each test is standalone
 

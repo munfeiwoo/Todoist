@@ -14,9 +14,6 @@ from util.fileaccess import load_csv_to_dict
 
 LOGIN_TEST_DATA_PATH = 'data\\web\\login.csv'
 
-logging.basicConfig(level=logging.DEBUG)
-log = logging.getLogger()
-
 
 def get_login_test_data():
     # Retrieve values from CSV
@@ -37,7 +34,6 @@ def test_login(browser, data):
     login = TodoistLogin(browser)
     login.load()
     login.email_login(data['email'], data['password'])
-
     assert login.check_if_login_successful() == data['expected'], \
         'Access for user with username: {} and password: ' \
         '{} is not working as expected'.format(data['email'], data['password'])
