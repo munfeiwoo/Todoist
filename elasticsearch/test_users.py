@@ -5,7 +5,7 @@ import pytest
 import logging
 import allure
 
-from util.es import es_connect, es_search
+from util.es import es_connect
 from util.fileaccess import load_csv_to_dict, load_json_file
 from elasticsearch_dsl import Search
 from elasticsearch_dsl import Q
