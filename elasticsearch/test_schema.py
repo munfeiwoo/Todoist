@@ -2,14 +2,11 @@ import pytest
 import os
 import json
 import pytest
-import logging
 import allure
 
 from util.es import es_connect
 from util.fileaccess import load_csv_to_dict, load_json_file
 
-logging.basicConfig(level=logging.DEBUG)
-log = logging.getLogger()
 
 INDEX_TEST_DATA_PATH = 'data\\es\\schema\\index.csv'
 KNOWN_SYSTEM_INDEX_DATA_PATH = 'data\\es\\schema\\known_system_index.csv'
