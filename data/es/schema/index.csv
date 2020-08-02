@@ -2,3 +2,4 @@ index,no_shards,no_replicas,mapping
 project,1,1,.\data\es\schema\mapping_project.json
 task,1,1,.\data\es\schema\mapping_task.json
 users,1,1,.\data\es\schema\mapping_user.json
+user2,1,1,.\data\es\schema\mapping_user.json
