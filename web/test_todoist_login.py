@@ -28,16 +28,16 @@ def get_login_test_data():
 @pytest.mark.Login
 @pytest.mark.Web
 @pytest.mark.parametrize(
-    "data", get_login_test_data())
-@allure.epic("Web")
-@allure.feature("Feature - Login")
-@allure.story("Story - User Login")
-@allure.testcase("Test Case  - User login as expected")
+    'data', get_login_test_data())
+@allure.epic('Web')
+@allure.feature('Feature - Login')
+@allure.story('Story - User Login')
+@allure.testcase('Test Case  - User login as expected')
 def test_login(browser, data):
     login = TodoistLogin(browser)
     login.load()
-    login.email_login(data["email"], data["password"])
+    login.email_login(data['email'], data['password'])
 
-    assert login.check_if_login_successful() == data["expected"], \
-        "Access for user with username: {} and password: " \
-        "{} is not working as expected".format(data['email'], data['password'])
+    assert login.check_if_login_successful() == data['expected'], \
+        'Access for user with username: {} and password: ' \
+        '{} is not working as expected'.format(data['email'], data['password'])

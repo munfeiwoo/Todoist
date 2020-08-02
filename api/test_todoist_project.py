@@ -76,12 +76,12 @@ def api_remove_project_by_project_id(token, project_url, project_id):
 @pytest.mark.P1
 @pytest.mark.Project
 @pytest.mark.API
-@allure.epic("API")
-@allure.feature("Feature - Project")
-@allure.story("Story - Project")
-@allure.testcase("Test Case  - create and delete project using API")
+@allure.epic('API')
+@allure.feature('Feature - Project')
+@allure.story('Story - Project')
+@allure.testcase('Test Case  - create and delete project using API')
 def test_create_and_delete_project(api_test_config):
-    project_name = "project3"
+    project_name = 'project3'
     token = api_test_config['api_token']
     project_url = api_test_config['api_project_url']
     project_id = api_create_new_project(token, project_url, project_name)
@@ -94,12 +94,12 @@ def test_create_and_delete_project(api_test_config):
 @pytest.mark.P1
 @pytest.mark.Project
 @pytest.mark.API
-@allure.epic("API")
-@allure.feature("Feature - Project")
-@allure.story("Story - Project")
-@allure.testcase("Test Case  - remove all projects by project name using API")
+@allure.epic('API')
+@allure.feature('Feature - Project')
+@allure.story('Story - Project')
+@allure.testcase('Test Case  - remove all projects by project name using API')
 def test_remove_all_projects_by_project_name(api_test_config):
-    project_name = "sample1"
+    project_name = 'sample1'
     token = api_test_config['api_token']
     project_url = api_test_config['api_project_url']
     x = range(2)

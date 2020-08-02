@@ -17,10 +17,10 @@ log = logging.getLogger()
 @pytest.mark.P1
 @pytest.mark.Project
 @pytest.mark.Web
-@allure.epic("Web")
-@allure.feature("Feature - Login")
-@allure.story("Story - User project")
-@allure.testcase("Test Case  - User project displayed accordingly")
+@allure.epic('Web')
+@allure.feature('Feature - Login')
+@allure.story('Story - User project')
+@allure.testcase('Test Case  - User project displayed accordingly')
 def test_validate_project(browser, api, user):
     # Setup
     log.info('Setting up test environment for test_create_project')

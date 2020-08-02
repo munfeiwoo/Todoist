@@ -72,14 +72,14 @@ def api_close_task(token, project_task_url, task_id):
 @pytest.mark.P1
 @pytest.mark.Task
 @pytest.mark.API
-@allure.epic("API")
-@allure.feature("Feature - Task")
-@allure.story("Story - Task")
-@allure.testcase("Test Case  - create and get tasks details using API")
+@allure.epic('API')
+@allure.feature('Feature - Task')
+@allure.story('Story - Task')
+@allure.testcase('Test Case  - create and get tasks details using API')
 def test_create_and_get_tasks_details(api_test_config):
-    project_name = "project_task1"
-    task_title = "testing 12345"
-    task_due = "26 June 2020"
+    project_name = 'project_task1'
+    task_title = 'testing 12345'
+    task_due = '26 June 2020'
     token = api_test_config['api_token']
     project_task_url = api_test_config['api_project_task_url']
     project_url = api_test_config['api_project_url']
