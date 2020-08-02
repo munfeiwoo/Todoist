@@ -34,9 +34,10 @@ def get_login_test_data():
 @allure.story("Story - User Login")
 @allure.testcase("Test Case  - User login as expected")
 def test_login(browser, data):
-
     login = TodoistLogin(browser)
     login.load()
     login.email_login(data["email"], data["password"])
 
-    assert login.check_if_login_successful() == data["expected"]
+    assert login.check_if_login_successful() == data["expected"], \
+        "Access for user with username: {} and password: " \
+        "{} is not working as expected".format(data['email'], data['password'])
