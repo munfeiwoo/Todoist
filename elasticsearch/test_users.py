@@ -60,7 +60,8 @@ def test_checking_of_missing_user(es, data):
                 print(response)
                 for hit in response:
                     hit_count += 1
-    assert user_count == hit_count
+    assert user_count == hit_count, \
+        "expected {} users but ES returning {} users".format(user_count,hit_count)
 
 
 @pytest.mark.P2
@@ -88,4 +89,6 @@ def test_checking_of_deleted_user(es, data):
                 print(response)
                 for hit in response:
                     hit_count += 1
-        assert hit_count == 0
+        assert hit_count == 0, \
+            "expected 0 user but ES returning {} users".format(hit_count)
+
