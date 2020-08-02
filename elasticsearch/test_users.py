@@ -27,15 +27,15 @@ def get_execution_data_for_deleted_users():
 def query_construct(fieldnames, data):
     match = []
     for field in fieldnames:
-        if field == "email":
+        if field == 'email':
             match.append(Q('match', email=data['email']))
-        if field == "user_name":
+        if field == 'user_name':
             match.append(Q('match', user_name=data['user_name']))
-        if field == "first_name":
+        if field == 'first_name':
             match.append(Q('match', first_name=data['first_name']))
-        if field == "last_name":
+        if field == 'last_name':
             match.append(Q('match', last_name=data['last_name']))
-        if field == "country":
+        if field == 'country':
             match.append(Q('match', country=data['country']))
     return match
 
@@ -45,10 +45,10 @@ def query_construct(fieldnames, data):
 @pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data_for_added_users())
-@allure.epic("ElasticSearch - Users")
-@allure.feature("Feature - User index")
-@allure.story("Story - Check user data")
-@allure.testcase("Test Case  - Check missing users")
+@allure.epic('ElasticSearch - Users')
+@allure.feature('Feature - User index')
+@allure.story('Story - Check user data')
+@allure.testcase('Test Case  - Check missing users')
 def test_checking_of_missing_user(es, data):
     user_count = 0
     hit_count = 0
@@ -66,7 +66,7 @@ def test_checking_of_missing_user(es, data):
                 for hit in response:
                     hit_count += 1
     assert user_count == hit_count, \
-        "expected {} users but ES returning {} users".format(user_count, hit_count)
+        'Expected {} users but ES returning {} users'.format(user_count, hit_count)
 
 
 @pytest.mark.P2
@@ -74,10 +74,10 @@ def test_checking_of_missing_user(es, data):
 @pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data_for_deleted_users())
-@allure.epic("ElasticSearch - Users")
-@allure.feature("Feature - User index")
-@allure.story("Story - Check user data")
-@allure.testcase("Test Case  - Check deleted users")
+@allure.epic('ElasticSearch - Users')
+@allure.feature('Feature - User index')
+@allure.story('Story - Check user data')
+@allure.testcase('Test Case  - Check deleted users')
 def test_checking_of_deleted_user(es, data):
     user_count = 0
     hit_count = 0
@@ -95,4 +95,4 @@ def test_checking_of_deleted_user(es, data):
                 for hit in response:
                     hit_count += 1
         assert hit_count == 0, \
-            "expected 0 user but ES returning {} users".format(hit_count)
+            'Expected 0 user but ES returning {} users'.format(hit_count)
