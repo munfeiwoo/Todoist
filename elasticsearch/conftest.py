@@ -30,7 +30,6 @@ def pytest_configure(config):
 @pytest.fixture(scope='session')
 def configure():
     # Read the JSON config file and returns it as a parsed dict
-
     return load_json_file(CONFIG_PATH)
 
 
