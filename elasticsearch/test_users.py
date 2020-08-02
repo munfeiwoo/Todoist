@@ -45,7 +45,7 @@ def query_construct(fieldnames, data):
 @pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data_for_added_users())
-@allure.epic("ElasticSearch - Index")
+@allure.epic("ElasticSearch - Users")
 @allure.feature("Feature - User index")
 @allure.story("Story - Check user data")
 @allure.testcase("Test Case  - Check missing users")
@@ -74,7 +74,7 @@ def test_checking_of_missing_user(es, data):
 @pytest.mark.Users
 @pytest.mark.parametrize(
     'data', get_execution_data_for_deleted_users())
-@allure.epic("ElasticSearch - Index")
+@allure.epic("ElasticSearch - Users")
 @allure.feature("Feature - User index")
 @allure.story("Story - Check user data")
 @allure.testcase("Test Case  - Check deleted users")
