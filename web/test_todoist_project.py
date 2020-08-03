@@ -15,7 +15,7 @@ from pages.web.todoist_project import TodoistProject
 @pytest.mark.Project
 @pytest.mark.Web
 @allure.epic('Web')
-@allure.feature('Feature - Login')
+@allure.feature('Feature - Project')
 @allure.story('Story - User project')
 @allure.testcase('Test Case  - User project displayed accordingly')
 def test_validate_project(browser, api, user):
