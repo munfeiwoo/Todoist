@@ -5,7 +5,7 @@
         "end_date" : {
           "type" : "date"
         },
-        "start_date" : {
+        "start_date2" : {
           "type" : "date"
         },
         "status" : {
